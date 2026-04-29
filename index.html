@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mercy Ships — Status Dashboard</title>
+<style>
+    *,*::before,*::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .header {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.08), 0 1px 2px rgba(15,23,42,0.04);
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .meta {
+      color: #475569;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .meta code {
+      background: #f1f5f9;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+    }
+    .counts { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .pill.closed   { background: #dcfce7; color: #166534; }
+    .pill.in-prod  { background: #dbeafe; color: #1e40af; }
+    .pill.sandbox  { background: #ffedd5; color: #9a3412; }
+    .pill.dev      { background: #fef9c3; color: #854d0e; }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: #1e293b;
+    }
+
+    /* Kanban */
+    .kanban {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .col {
+      background: #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 120px;
+      min-width: 0;
+    }
+    .col.closed   { background: #ecfdf5; }
+    .col.in-prod  { background: #eff6ff; }
+    .col.sandbox  { background: #fff7ed; }
+    .col.dev      { background: #fefce8; }
+    .col.backlog  { background: #f5f3ff; }
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 13px;
+      color: #1e293b;
+    }
+    .col-count {
+      background: white;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 2px rgba(15,23,42,0.06);
+      font-size: 13px;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .card-id {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    .card-orgs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .org-tag {
+      background: #f1f5f9;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #475569;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+    }
+    .card-next {
+      color: #475569;
+      font-size: 12px;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 8px;
+    }
+    .card-next strong { color: #1e293b; font-weight: 600; }
+
+    /* Matrix table */
+    .matrix-wrapper {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 24px 8px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.08), 0 1px 2px rgba(15,23,42,0.04);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #475569;
+    }
+    th.center, td.center { text-align: center; }
+    td.center { font-size: 16px; }
+    td.id {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 12px;
+      color: #1e293b;
+    }
+    td.stage span {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    td.stage span.closed   { background: #dcfce7; color: #166534; }
+    td.stage span.in-prod  { background: #dbeafe; color: #1e40af; }
+    td.stage span.sandbox  { background: #ffedd5; color: #9a3412; }
+    td.stage span.dev      { background: #fef9c3; color: #854d0e; }
+    td.stage span.backlog  { background: #ede9fe; color: #5b21b6; }
+
+    .footer {
+      color: #64748b;
+      font-size: 12px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* Responsive: 5 columns at >=1280px, then progressively collapse based on viewport.
+       Falls back to a fully fluid auto-fit at any width thanks to minmax(0, 1fr). */
+    @media (max-width: 1280px) { .kanban { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    @media (max-width: 1024px) { .kanban { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 768px)  { .kanban { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 540px) {
+      .kanban { grid-template-columns: 1fr; }
+      body { padding: 12px; }
+    }
+    </style>
+</head><body>
+<div class="container">
+<div class="header">
+<h1>Mercy Ships — Status Dashboard</h1>
+<div class="meta">Generated <strong>2026-04-29 01:31 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="counts">
+<span class="pill closed">✅ 7 Closed</span>
+<span class="pill in-prod">🟢 4 In Prod (Open)</span>
+<span class="pill sandbox">🟠 2 In Sandbox</span>
+<span class="pill dev">🟡 2 In Dev</span>
+<span class="pill backlog">🆕 1 New</span>
+</div></div>
+<div class="kanban">
+<div class="col backlog">
+<div class="col-header"><span>🆕 New</span><span class="col-count">1</span></div>
+<div class="card">
+<div class="card-id">searchable-record-id-extension</div>
+<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
+</div>
+</div>
+<div class="col dev">
+<div class="col-header"><span>🟡 In Dev</span><span class="col-count">2</span></div>
+<div class="card">
+<div class="card-id">dupe-rules-woocommerce</div>
+<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
+</div>
+<div class="card">
+<div class="card-id">eoy-tax-receipt</div>
+<div class="card-title">End of year Tax Statement Email Templates</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
+</div>
+</div>
+<div class="col sandbox">
+<div class="col-header"><span>🟠 In Sandbox</span><span class="col-count">2</span></div>
+<div class="card">
+<div class="card-id">ocr-scanline-image</div>
+<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ⏳</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">task-delete-restriction</div>
+<div class="card-title">Task Delete Restriction (10 named users only)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod 🛑</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</div>
+</div>
+</div>
+<div class="col in-prod">
+<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">4</span></div>
+<div class="card">
+<div class="card-id">ty-letter-rollup-async</div>
+<div class="card-title">Thank You letter codes for Recurring Donation Opportunities</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</div>
+</div>
+<div class="card">
+<div class="card-id">campaign-fdc-tdtm</div>
+<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
+</div>
+<div class="card">
+<div class="card-id">allocation-financedept-tdtm</div>
+<div class="card-title">RDM Account assignment – auto-population on GAU Allocation</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
+</div>
+<div class="card">
+<div class="card-id">searchable-record-id</div>
+<div class="card-title">Global Search to support searching by Salesforce Record ID</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
+</div>
+</div>
+<div class="col closed">
+<div class="col-header"><span>✅ Closed</span><span class="col-count">7</span></div>
+<div class="card">
+<div class="card-id">msid-multiline</div>
+<div class="card-title">MSID multi-line MailingStreet</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> 242-Contact silent-failure sweep · MSUSFULL APIM key repaste</div>
+</div>
+<div class="card">
+<div class="card-id">ty-letter-5bucket-delivery</div>
+<div class="card-title">Mailing Deliverability automation – auto-select correct template based on contact</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> manifest cleanup: collapse into ty-letter-rollup-async (same class)</div>
+</div>
+<div class="card">
+<div class="card-id">protect-4-opp-fields</div>
+<div class="card-title">Protect 4 Opportunity fields on migrated records</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
+</div>
+<div class="card">
+<div class="card-id">psc-financedept-tdtm</div>
+<div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (PSC AAM)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
+</div>
+<div class="card">
+<div class="card-id">woocommerce-opp-fields</div>
+<div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
+</div>
+<div class="card">
+<div class="card-id">dryad-templates</div>
+<div class="card-title">Fix all email templates (Next Donation button hyperlink and broken images)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> quarterly link-rot audit (in-prod data, not source-controlled)</div>
+</div>
+<div class="card">
+<div class="card-id">smartystreets-account-verify</div>
+<div class="card-title">Address Verification button on Account: 'No address in the setting' error</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+</div>
+</div>
+<div class="matrix-wrapper">
+<h2>Pipeline matrix</h2>
+<table><thead><tr><th>Ticket</th><th>Summary</th><th class='center'>MSMO</th><th class='center'>MSUSFULL</th><th class='center'>Prod</th><th>Stage</th><th>Next</th></tr></thead><tbody>
+<tr>
+<td class="id">msid-multiline</td>
+<td>MSID multi-line MailingStreet</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>242-Contact silent-failure sweep · MSUSFULL APIM key repaste</td>
+</tr>
+<tr>
+<td class="id">ty-letter-5bucket-delivery</td>
+<td>Mailing Deliverability automation – auto-select correct template based on contact</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>manifest cleanup: collapse into ty-letter-rollup-async (same class)</td>
+</tr>
+<tr>
+<td class="id">protect-4-opp-fields</td>
+<td>Protect 4 Opportunity fields on migrated records</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>30-day silent-overwrite drift scan ~2026-05-23</td>
+</tr>
+<tr>
+<td class="id">psc-financedept-tdtm</td>
+<td>RDM Account assignment – auto-population on Account Soft Credits (PSC AAM)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>release pipeline to Prod</td>
+</tr>
+<tr>
+<td class="id">woocommerce-opp-fields</td>
+<td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
+</tr>
+<tr>
+<td class="id">dryad-templates</td>
+<td>Fix all email templates (Next Donation button hyperlink and broken images)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>quarterly link-rot audit (in-prod data, not source-controlled)</td>
+</tr>
+<tr>
+<td class="id">smartystreets-account-verify</td>
+<td>Address Verification button on Account: 'No address in the setting' error</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">ty-letter-rollup-async</td>
+<td>Thank You letter codes for Recurring Donation Opportunities</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
+</tr>
+<tr>
+<td class="id">campaign-fdc-tdtm</td>
+<td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
+</tr>
+<tr>
+<td class="id">allocation-financedept-tdtm</td>
+<td>RDM Account assignment – auto-population on GAU Allocation</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>release pipeline to Prod</td>
+</tr>
+<tr>
+<td class="id">searchable-record-id</td>
+<td>Global Search to support searching by Salesforce Record ID</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
+</tr>
+<tr>
+<td class="id">ocr-scanline-image</td>
+<td>OCR-A scan-line image in Dryad receipts</td>
+<td class="center">⚠</td>
+<td class="center">✅</td>
+<td class="center">⏳</td>
+<td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">task-delete-restriction</td>
+<td>Task Delete Restriction (10 named users only)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">🛑</td>
+<td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
+<td>Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</td>
+</tr>
+<tr>
+<td class="id">dupe-rules-woocommerce</td>
+<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
+</tr>
+<tr>
+<td class="id">eoy-tax-receipt</td>
+<td>End of year Tax Statement Email Templates</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td>Client sign-off → architect gate → ~1.5wk build phase</td>
+</tr>
+</tbody></table>
+</div>
+<div class="footer">Detail per ticket lives in <code>MERCY_SHIPS_LOG.md</code>. This file is generated; do not hand-edit. Glyph key: ✅ live · ⚠ partial · ⏳ awaiting · — not yet · · n/a · 🛑 query error.</div>
+</div></body></html>
