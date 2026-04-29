@@ -201,12 +201,12 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-04-29 04:17 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-04-29 08:46 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
 <span class="pill closed">✅ 7 Closed</span>
-<span class="pill in-prod">🟢 4 In Prod (Open)</span>
+<span class="pill in-prod">🟢 5 In Prod (Open)</span>
 <span class="pill sandbox">🟠 4 In Sandbox</span>
-<span class="pill dev">🟡 2 In Dev</span>
+<span class="pill dev">🟡 1 In Dev</span>
 <span class="pill backlog">🆕 1 New</span>
 </div></div>
 <div class="kanban">
@@ -224,17 +224,7 @@
 </div>
 </div>
 <div class="col dev">
-<div class="col-header"><span>🟡 In Dev</span><span class="col-count">2</span></div>
-<div class="card">
-<div class="card-id">dupe-rules-woocommerce</div>
-<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
-</div>
+<div class="col-header"><span>🟡 In Dev</span><span class="col-count">1</span></div>
 <div class="card">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
@@ -259,22 +249,22 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
+<div class="card-id">dupe-rules-woocommerce</div>
+<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL 🛑</span>
+<span class="org-tag">Prod ⏳</span>
+</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
+</div>
+<div class="card">
 <div class="card-id">woo-processor-normalizer</div>
 <div class="card-title">Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ✅</span>
 <span class="org-tag">MSUSFULL ✅</span>
 <span class="org-tag">Prod ❌</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">ocr-scanline-image</div>
-<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ⚠</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ⏳</span>
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
@@ -290,7 +280,7 @@
 </div>
 </div>
 <div class="col in-prod">
-<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">4</span></div>
+<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">5</span></div>
 <div class="card">
 <div class="card-id">ty-letter-rollup-async</div>
 <div class="card-title">Thank You letter codes for Recurring Donation Opportunities</div>
@@ -330,6 +320,16 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
+</div>
+<div class="card">
+<div class="card-id">ocr-scanline-image</div>
+<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 </div>
 <div class="col closed">
@@ -509,6 +509,15 @@
 <td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
 </tr>
 <tr>
+<td class="id">ocr-scanline-image</td>
+<td>OCR-A scan-line image in Dryad receipts</td>
+<td class="center">⚠</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">asc-aam-tdtm</td>
 <td>RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</td>
 <td class="center">✅</td>
@@ -516,6 +525,15 @@
 <td class="center">⏳</td>
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
 <td>—</td>
+</tr>
+<tr>
+<td class="id">dupe-rules-woocommerce</td>
+<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</td>
+<td class="center">✅</td>
+<td class="center">🛑</td>
+<td class="center">⏳</td>
+<td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
+<td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
 </tr>
 <tr>
 <td class="id">woo-processor-normalizer</td>
@@ -527,15 +545,6 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">ocr-scanline-image</td>
-<td>OCR-A scan-line image in Dryad receipts</td>
-<td class="center">⚠</td>
-<td class="center">✅</td>
-<td class="center">⏳</td>
-<td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">task-delete-restriction</td>
 <td>Task Delete Restriction (10 named users only)</td>
 <td class="center">✅</td>
@@ -543,15 +552,6 @@
 <td class="center">⏳</td>
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
 <td>Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</td>
-</tr>
-<tr>
-<td class="id">dupe-rules-woocommerce</td>
-<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="dev">🟡 In Dev</span></td>
-<td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
 </tr>
 <tr>
 <td class="id">eoy-tax-receipt</td>
