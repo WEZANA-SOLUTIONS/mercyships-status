@@ -201,11 +201,11 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-04-29 03:28 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-04-29 04:08 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
 <span class="pill closed">✅ 7 Closed</span>
 <span class="pill in-prod">🟢 4 In Prod (Open)</span>
-<span class="pill sandbox">🟠 3 In Sandbox</span>
+<span class="pill sandbox">🟠 4 In Sandbox</span>
 <span class="pill dev">🟡 2 In Dev</span>
 <span class="pill backlog">🆕 1 New</span>
 </div></div>
@@ -247,7 +247,7 @@
 </div>
 </div>
 <div class="col sandbox">
-<div class="col-header"><span>🟠 In Sandbox</span><span class="col-count">3</span></div>
+<div class="col-header"><span>🟠 In Sandbox</span><span class="col-count">4</span></div>
 <div class="card">
 <div class="card-id">asc-aam-tdtm</div>
 <div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</div>
@@ -255,6 +255,16 @@
 <span class="org-tag">MSMO ✅</span>
 <span class="org-tag">MSUSFULL ✅</span>
 <span class="org-tag">Prod ⏳</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">woo-processor-normalizer</div>
+<div class="card-title">Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ❌</span>
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
@@ -504,6 +514,15 @@
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="center">⏳</td>
+<td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">woo-processor-normalizer</td>
+<td>Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
 <td>—</td>
 </tr>
