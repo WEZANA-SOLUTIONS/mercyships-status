@@ -201,17 +201,17 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-04 17:06 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-04 17:36 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 13 Closed</span>
-<span class="pill in-prod">🟢 5 In Prod (Open)</span>
+<span class="pill closed">✅ 15 Closed</span>
+<span class="pill in-prod">🟢 3 In Prod (Open)</span>
 <span class="pill sandbox">🟠 2 In Sandbox</span>
-<span class="pill dev">🟡 1 In Dev</span>
-<span class="pill backlog">🆕 5 New</span>
+<span class="pill dev">🟡 2 In Dev</span>
+<span class="pill backlog">🆕 4 New</span>
 </div></div>
 <div class="kanban">
 <div class="col backlog">
-<div class="col-header"><span>🆕 New</span><span class="col-count">5</span></div>
+<div class="col-header"><span>🆕 New</span><span class="col-count">4</span></div>
 <div class="card">
 <div class="card-id">ty-letter-spec-alignment</div>
 <div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
@@ -221,16 +221,6 @@
 <span class="org-tag">Prod ⚪</span>
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">searchable-record-id-extension</div>
-<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
 </div>
 <div class="card">
 <div class="card-id">merge-and-delete-access-audit</div>
@@ -264,7 +254,17 @@
 </div>
 </div>
 <div class="col dev">
-<div class="col-header"><span>🟡 In Dev</span><span class="col-count">1</span></div>
+<div class="col-header"><span>🟡 In Dev</span><span class="col-count">2</span></div>
+<div class="card">
+<div class="card-id">searchable-record-id-extension</div>
+<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
+</div>
 <div class="card">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
@@ -300,7 +300,7 @@
 </div>
 </div>
 <div class="col in-prod">
-<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">5</span></div>
+<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">3</span></div>
 <div class="card">
 <div class="card-id">ty-letter-rollup-async</div>
 <div class="card-title">Thank You letter codes for Recurring Donation Opportunities</div>
@@ -310,16 +310,6 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</div>
-</div>
-<div class="card">
-<div class="card-id">campaign-fdc-tdtm</div>
-<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
 </div>
 <div class="card">
 <div class="card-id">allocation-financedept-tdtm</div>
@@ -341,19 +331,9 @@
 </div>
 <div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
 </div>
-<div class="card">
-<div class="card-id">ocr-scanline-image</div>
-<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ⚠</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">13</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">15</span></div>
 <div class="card">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
@@ -383,6 +363,16 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
+</div>
+<div class="card">
+<div class="card-id">campaign-fdc-tdtm</div>
+<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
 </div>
 <div class="card">
 <div class="card-id">asc-aam-tdtm</div>
@@ -423,6 +413,16 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
+</div>
+<div class="card">
+<div class="card-id">ocr-scanline-image</div>
+<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
 <div class="card-id">task-delete-restriction</div>
@@ -517,6 +517,15 @@
 <td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
 <tr>
+<td class="id">campaign-fdc-tdtm</td>
+<td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
+</tr>
+<tr>
 <td class="id">asc-aam-tdtm</td>
 <td>RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</td>
 <td class="center">✅</td>
@@ -551,6 +560,15 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
+</tr>
+<tr>
+<td class="id">ocr-scanline-image</td>
+<td>OCR-A scan-line image in Dryad receipts</td>
+<td class="center">⚠</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
 </tr>
 <tr>
 <td class="id">task-delete-restriction</td>
@@ -616,15 +634,6 @@
 <td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
 </tr>
 <tr>
-<td class="id">campaign-fdc-tdtm</td>
-<td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
-</tr>
-<tr>
 <td class="id">allocation-financedept-tdtm</td>
 <td>RDM Account assignment – auto-population on GAU Allocation</td>
 <td class="center">✅</td>
@@ -643,15 +652,6 @@
 <td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
 </tr>
 <tr>
-<td class="id">ocr-scanline-image</td>
-<td>OCR-A scan-line image in Dryad receipts</td>
-<td class="center">⚠</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">allocation-fdc-batchable-deploy</td>
 <td>Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</td>
 <td class="center">—</td>
@@ -668,6 +668,15 @@
 <td class="center">⏳</td>
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
 <td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
+</tr>
+<tr>
+<td class="id">searchable-record-id-extension</td>
+<td>Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td>parked — pick up when business asks for record-Id search on Campaign / RD / GAU</td>
 </tr>
 <tr>
 <td class="id">eoy-tax-receipt</td>
