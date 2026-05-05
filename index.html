@@ -201,17 +201,17 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-05 18:27 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-05 18:38 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 15 Closed</span>
+<span class="pill closed">✅ 16 Closed</span>
 <span class="pill in-prod">🟢 3 In Prod (Open)</span>
 <span class="pill sandbox">🟠 2 In Sandbox</span>
-<span class="pill dev">🟡 2 In Dev</span>
-<span class="pill backlog">🆕 6 New</span>
+<span class="pill dev">🟡 4 In Dev</span>
+<span class="pill backlog">🆕 3 New</span>
 </div></div>
 <div class="kanban">
 <div class="col backlog">
-<div class="col-header"><span>🆕 New</span><span class="col-count">6</span></div>
+<div class="col-header"><span>🆕 New</span><span class="col-count">3</span></div>
 <div class="card">
 <div class="card-id">ty-letter-spec-alignment</div>
 <div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
@@ -242,15 +242,28 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
+</div>
+<div class="col dev">
+<div class="col-header"><span>🟡 In Dev</span><span class="col-count">4</span></div>
 <div class="card">
-<div class="card-id">mailing-address-subpremise-autocomplete</div>
-<div class="card-title">Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</div>
+<div class="card-id">searchable-record-id-extension</div>
+<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
 <span class="org-tag">Prod ⚪</span>
 </div>
-<div class="card-next"><strong>Next:</strong> —</div>
+<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
+</div>
+<div class="card">
+<div class="card-id">eoy-tax-receipt</div>
+<div class="card-title">End of year Tax Statement Email Templates</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
 </div>
 <div class="card">
 <div class="card-id">opp-bulk-import-cpu-limit</div>
@@ -271,29 +284,6 @@
 <span class="org-tag">Prod ⚪</span>
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
-</div>
-</div>
-<div class="col dev">
-<div class="col-header"><span>🟡 In Dev</span><span class="col-count">2</span></div>
-<div class="card">
-<div class="card-id">searchable-record-id-extension</div>
-<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
-</div>
-<div class="card">
-<div class="card-id">eoy-tax-receipt</div>
-<div class="card-title">End of year Tax Statement Email Templates</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
 </div>
 </div>
 <div class="col sandbox">
@@ -353,7 +343,7 @@
 </div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">15</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">16</span></div>
 <div class="card">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
@@ -487,6 +477,16 @@
 <div class="card">
 <div class="card-id">contact-account-address-inherit</div>
 <div class="card-title">Contact Not Inheriting Account Address</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">mailing-address-subpremise-autocomplete</div>
+<div class="card-title">Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -636,6 +636,15 @@
 <td>—</td>
 </tr>
 <tr>
+<td class="id">mailing-address-subpremise-autocomplete</td>
+<td>Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">woocommerce-source-system-mapping</td>
 <td>Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</td>
 <td class="center">✅</td>
@@ -706,6 +715,24 @@
 <td class="center">⚪</td>
 <td class="stage"><span class="dev">🟡 In Dev</span></td>
 <td>Client sign-off → architect gate → ~1.5wk build phase</td>
+</tr>
+<tr>
+<td class="id">opp-bulk-import-cpu-limit</td>
+<td>Opportunity bulk-import lock-row + data-skew failures</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">gau-allocation-refund-error</td>
+<td>NPSP refund-cascade error when GAU Allocation Percent=null</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td>—</td>
 </tr>
 </tbody></table>
 </div>
