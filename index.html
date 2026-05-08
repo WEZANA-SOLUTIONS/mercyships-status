@@ -244,12 +244,12 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-08 14:48 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-08 16:15 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts" id="counts">
-<span class="pill closed" data-stage="closed">✅ <span class="pill-count">19</span> Closed</span>
+<span class="pill closed" data-stage="closed">✅ <span class="pill-count">20</span> Closed</span>
 <span class="pill in-prod" data-stage="in_prod_open">🟢 <span class="pill-count">6</span> In Prod (Open)</span>
 <span class="pill sandbox" data-stage="in_sandbox">🟠 <span class="pill-count">1</span> In Sandbox</span>
-<span class="pill dev" data-stage="in_dev">🟡 <span class="pill-count">3</span> In Dev</span>
+<span class="pill dev" data-stage="in_dev">🟡 <span class="pill-count">2</span> In Dev</span>
 <span class="pill backlog" data-stage="backlog">🆕 <span class="pill-count">7</span> New</span>
 </div>
 <div class="filter-row">
@@ -338,17 +338,7 @@
 </div>
 </div>
 <div class="col dev">
-<div class="col-header"><span>🟡 In Dev</span><span class="col-count">3</span></div>
-<div class="card" data-stage="in_dev" data-id="searchable-record-id-extension" data-filed-at="2026-04-24" data-closed-at="">
-<div class="card-id">searchable-record-id-extension</div>
-<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
-</div>
+<div class="col-header"><span>🟡 In Dev</span><span class="col-count">2</span></div>
 <div class="card" data-stage="in_dev" data-id="eoy-tax-receipt" data-filed-at="2026-05-07" data-closed-at="">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
@@ -447,7 +437,7 @@
 </div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">19</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">20</span></div>
 <div class="card" data-stage="closed" data-id="woo-store-tribute-allocation" data-filed-at="2026-05-07" data-closed-at="2026-05-07">
 <div class="card-id">woo-store-tribute-allocation</div>
 <div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
@@ -537,6 +527,16 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
+</div>
+<div class="card" data-stage="closed" data-id="searchable-record-id-extension" data-filed-at="2026-05-08" data-closed-at="2026-05-08">
+<div class="card-id">searchable-record-id-extension</div>
+<div class="card-title">Global Search — extended to Recurring Donation (Campaign / GAU dropped from scope)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
 </div>
 <div class="card" data-stage="closed" data-id="ocr-scanline-image" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <div class="card-id">ocr-scanline-image</div>
@@ -724,6 +724,15 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
 </tr>
+<tr data-stage="closed" data-id="searchable-record-id-extension" data-filed-at="2026-05-08" data-closed-at="2026-05-08">
+<td class="id">searchable-record-id-extension</td>
+<td>Global Search — extended to Recurring Donation (Campaign / GAU dropped from scope)</td>
+<td class="center">⚠</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>parked — pick up when business asks for record-Id search on Campaign / RD / GAU</td>
+</tr>
 <tr data-stage="closed" data-id="ocr-scanline-image" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <td class="id">ocr-scanline-image</td>
 <td>OCR-A scan-line image in Dryad receipts</td>
@@ -876,15 +885,6 @@
 <td class="center">⏳</td>
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
 <td>—</td>
-</tr>
-<tr data-stage="in_dev" data-id="searchable-record-id-extension" data-filed-at="2026-04-24" data-closed-at="">
-<td class="id">searchable-record-id-extension</td>
-<td>Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="dev">🟡 In Dev</span></td>
-<td>parked — pick up when business asks for record-Id search on Campaign / RD / GAU</td>
 </tr>
 <tr data-stage="in_dev" data-id="eoy-tax-receipt" data-filed-at="2026-05-07" data-closed-at="">
 <td class="id">eoy-tax-receipt</td>
