@@ -201,10 +201,10 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-07 13:19 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-07 19:02 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 18 Closed</span>
-<span class="pill in-prod">🟢 5 In Prod (Open)</span>
+<span class="pill closed">✅ 19 Closed</span>
+<span class="pill in-prod">🟢 6 In Prod (Open)</span>
 <span class="pill sandbox">🟠 2 In Sandbox</span>
 <span class="pill dev">🟡 4 In Dev</span>
 <span class="pill backlog">🆕 2 New</span>
@@ -256,8 +256,8 @@
 <div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
 </div>
 <div class="card">
-<div class="card-id">tribute-type-on-opportunity</div>
-<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
+<div class="card-id">woocommerce-tribute-mapping</div>
+<div class="card-title">WooCommerce → Tribute Allocation mapping (find-or-create npsp__Tribute__c when In Tribute Of populated on woo_store_donation orders)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -300,7 +300,7 @@
 </div>
 </div>
 <div class="col in-prod">
-<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">5</span></div>
+<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">6</span></div>
 <div class="card">
 <div class="card-id">opp-close-date-flow-limit</div>
 <div class="card-title">CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</div>
@@ -351,9 +351,29 @@
 </div>
 <div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
 </div>
+<div class="card">
+<div class="card-id">tribute-type-on-opportunity</div>
+<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">18</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">19</span></div>
+<div class="card">
+<div class="card-id">woo-store-tribute-allocation</div>
+<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
 <div class="card">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
@@ -539,6 +559,15 @@
 <div class="matrix-wrapper">
 <h2>Pipeline matrix</h2>
 <table><thead><tr><th>Ticket</th><th>Summary</th><th class='center'>MSMO</th><th class='center'>MSUSFULL</th><th class='center'>Prod</th><th>Stage</th><th>Next</th></tr></thead><tbody>
+<tr>
+<td class="id">woo-store-tribute-allocation</td>
+<td>Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
 <tr>
 <td class="id">msid-multiline</td>
 <td>MSID multi-line MailingStreet</td>
@@ -747,6 +776,15 @@
 <td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
 </tr>
 <tr>
+<td class="id">tribute-type-on-opportunity</td>
+<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">allocation-fdc-batchable-deploy</td>
 <td>Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</td>
 <td class="center">—</td>
@@ -783,8 +821,8 @@
 <td>Client sign-off → architect gate → ~1.5wk build phase</td>
 </tr>
 <tr>
-<td class="id">tribute-type-on-opportunity</td>
-<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
+<td class="id">woocommerce-tribute-mapping</td>
+<td>WooCommerce → Tribute Allocation mapping (find-or-create npsp__Tribute__c when In Tribute Of populated on woo_store_donation orders)</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
