@@ -196,23 +196,86 @@
       .kanban { grid-template-columns: 1fr; }
       body { padding: 12px; }
     }
+
+    /* Weekly filter row */
+    .filter-row {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #475569;
+    }
+    .filter-select {
+      font-size: 13px;
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: white;
+      color: #0f172a;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .filter-select:hover { border-color: #94a3b8; }
+    .filter-select:focus { outline: 2px solid #3b82f6; outline-offset: 1px; }
+    .filter-hint {
+      font-size: 12px;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    /* Historical (3-stage simplified) view — produced by JS for past weeks */
+    .kanban.historical { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 768px) {
+      .kanban.historical { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 540px) {
+      .kanban.historical { grid-template-columns: 1fr; }
+    }
+    .historical-note {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      color: #78350f;
+    }
+    .matrix-wrapper.hidden, .matrix-wrapper[hidden] { display: none; }
     </style>
 </head><body>
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-08 13:05 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
-<div class="counts">
-<span class="pill closed">✅ 19 Closed</span>
-<span class="pill in-prod">🟢 6 In Prod (Open)</span>
-<span class="pill sandbox">🟠 1 In Sandbox</span>
-<span class="pill dev">🟡 3 In Dev</span>
-<span class="pill backlog">🆕 6 New</span>
-</div></div>
+<div class="meta">Generated <strong>2026-05-08 14:35 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="counts" id="counts">
+<span class="pill closed" data-stage="closed">✅ <span class="pill-count">19</span> Closed</span>
+<span class="pill in-prod" data-stage="in_prod_open">🟢 <span class="pill-count">6</span> In Prod (Open)</span>
+<span class="pill sandbox" data-stage="in_sandbox">🟠 <span class="pill-count">1</span> In Sandbox</span>
+<span class="pill dev" data-stage="in_dev">🟡 <span class="pill-count">3</span> In Dev</span>
+<span class="pill backlog" data-stage="backlog">🆕 <span class="pill-count">7</span> New</span>
+</div>
+<div class="filter-row">
+<label for="weekFilter" class="filter-label">View:</label>
+<select id="weekFilter" class="filter-select">
+<option value="all-time">All time</option>
+<option value="2026-W19">May 4–10 (this week)</option>
+<option value="2026-W18">Apr 27 – May 3</option>
+<option value="2026-W17">Apr 20–26</option>
+</select>
+<span id="filterHint" class="filter-hint"></span>
+</div>
+</div>
 <div class="kanban">
 <div class="col backlog">
-<div class="col-header"><span>🆕 New</span><span class="col-count">6</span></div>
-<div class="card">
+<div class="col-header"><span>🆕 New</span><span class="col-count">7</span></div>
+<div class="card" data-stage="backlog" data-id="dupe-rules-woocommerce" data-filed-at="2026-05-08" data-closed-at="">
 <div class="card-id">dupe-rules-woocommerce</div>
 <div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</div>
 <div class="card-orgs">
@@ -222,7 +285,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
 </div>
-<div class="card">
+<div class="card" data-stage="backlog" data-id="ty-letter-spec-alignment" data-filed-at="2026-04-29" data-closed-at="">
 <div class="card-id">ty-letter-spec-alignment</div>
 <div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
 <div class="card-orgs">
@@ -232,7 +295,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="backlog" data-id="key-donor-fields-readonly" data-filed-at="2026-05-01" data-closed-at="">
 <div class="card-id">key-donor-fields-readonly</div>
 <div class="card-title">Make Key Donor Fields Read-Only for MSUS users</div>
 <div class="card-orgs">
@@ -242,7 +305,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="backlog" data-id="missing-campaign-members" data-filed-at="2026-05-08" data-closed-at="">
 <div class="card-id">missing-campaign-members</div>
 <div class="card-title">Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</div>
 <div class="card-orgs">
@@ -252,7 +315,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="backlog" data-id="deceased-contact-household-account-behavior" data-filed-at="2026-05-08" data-closed-at="">
 <div class="card-id">deceased-contact-household-account-behavior</div>
 <div class="card-title">NPSP Household Account behavior when sole Contact is marked Deceased</div>
 <div class="card-orgs">
@@ -262,9 +325,19 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="backlog" data-id="c21-donorfile-closedate-rewrite" data-filed-at="2026-05-08" data-closed-at="">
 <div class="card-id">c21-donorfile-closedate-rewrite</div>
 <div class="card-title">C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card" data-stage="backlog" data-id="xl-connector-contact-import-householding" data-filed-at="2026-05-08" data-closed-at="">
+<div class="card-id">xl-connector-contact-import-householding</div>
+<div class="card-title">XL Connector contact import — review + safer NPSP-householding process</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -275,7 +348,7 @@
 </div>
 <div class="col dev">
 <div class="col-header"><span>🟡 In Dev</span><span class="col-count">3</span></div>
-<div class="card">
+<div class="card" data-stage="in_dev" data-id="searchable-record-id-extension" data-filed-at="2026-04-24" data-closed-at="">
 <div class="card-id">searchable-record-id-extension</div>
 <div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
 <div class="card-orgs">
@@ -285,7 +358,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_dev" data-id="eoy-tax-receipt" data-filed-at="2026-05-07" data-closed-at="">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
 <div class="card-orgs">
@@ -295,7 +368,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_dev" data-id="opp-bulk-import-cpu-limit" data-filed-at="2026-05-07" data-closed-at="">
 <div class="card-id">opp-bulk-import-cpu-limit</div>
 <div class="card-title">Opportunity bulk-import lock-row + data-skew failures</div>
 <div class="card-orgs">
@@ -308,7 +381,7 @@
 </div>
 <div class="col sandbox">
 <div class="col-header"><span>🟠 In Sandbox</span><span class="col-count">1</span></div>
-<div class="card">
+<div class="card" data-stage="in_sandbox" data-id="allocation-fdc-batchable-deploy" data-filed-at="2026-04-29" data-closed-at="">
 <div class="card-id">allocation-fdc-batchable-deploy</div>
 <div class="card-title">Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</div>
 <div class="card-orgs">
@@ -321,7 +394,7 @@
 </div>
 <div class="col in-prod">
 <div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">6</span></div>
-<div class="card">
+<div class="card" data-stage="in_prod_open" data-id="opp-close-date-flow-limit" data-filed-at="2026-05-07" data-closed-at="">
 <div class="card-id">opp-close-date-flow-limit</div>
 <div class="card-title">CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</div>
 <div class="card-orgs">
@@ -331,7 +404,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_prod_open" data-id="opportunity-restore-aftermdelete-npe" data-filed-at="2026-05-07" data-closed-at="">
 <div class="card-id">opportunity-restore-aftermdelete-npe</div>
 <div class="card-title">Opportunity Restore Failure (After Undelete Trigger Error)</div>
 <div class="card-orgs">
@@ -341,7 +414,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_prod_open" data-id="ty-letter-rollup-async" data-filed-at="2026-04-25" data-closed-at="">
 <div class="card-id">ty-letter-rollup-async</div>
 <div class="card-title">Thank You letter codes for Recurring Donation Opportunities</div>
 <div class="card-orgs">
@@ -351,7 +424,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_prod_open" data-id="allocation-financedept-tdtm" data-filed-at="2026-04-24" data-closed-at="">
 <div class="card-id">allocation-financedept-tdtm</div>
 <div class="card-title">RDM Account assignment – auto-population on GAU Allocation</div>
 <div class="card-orgs">
@@ -361,7 +434,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_prod_open" data-id="searchable-record-id" data-filed-at="2026-04-24" data-closed-at="">
 <div class="card-id">searchable-record-id</div>
 <div class="card-title">Global Search to support searching by Salesforce Record ID</div>
 <div class="card-orgs">
@@ -371,7 +444,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
 </div>
-<div class="card">
+<div class="card" data-stage="in_prod_open" data-id="tribute-type-on-opportunity" data-filed-at="2026-05-08" data-closed-at="">
 <div class="card-id">tribute-type-on-opportunity</div>
 <div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
 <div class="card-orgs">
@@ -384,7 +457,7 @@
 </div>
 <div class="col closed">
 <div class="col-header"><span>✅ Closed</span><span class="col-count">19</span></div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="woo-store-tribute-allocation" data-filed-at="2026-05-07" data-closed-at="2026-05-07">
 <div class="card-id">woo-store-tribute-allocation</div>
 <div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
 <div class="card-orgs">
@@ -394,7 +467,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="msid-multiline" data-filed-at="2026-04-22" data-closed-at="2026-04-22">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
 <div class="card-orgs">
@@ -404,7 +477,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> 242-Contact silent-failure sweep · MSUSFULL APIM key repaste</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="ty-letter-5bucket-delivery" data-filed-at="2026-04-23" data-closed-at="2026-04-23">
 <div class="card-id">ty-letter-5bucket-delivery</div>
 <div class="card-title">Mailing Deliverability automation – auto-select correct template based on contact</div>
 <div class="card-orgs">
@@ -414,7 +487,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> manifest cleanup: collapse into ty-letter-rollup-async (same class)</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="protect-4-opp-fields" data-filed-at="2026-04-23" data-closed-at="2026-04-23">
 <div class="card-id">protect-4-opp-fields</div>
 <div class="card-title">Protect 4 Opportunity fields on migrated records</div>
 <div class="card-orgs">
@@ -424,7 +497,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="campaign-fdc-tdtm" data-filed-at="2026-04-24" data-closed-at="2026-04-27">
 <div class="card-id">campaign-fdc-tdtm</div>
 <div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
 <div class="card-orgs">
@@ -434,7 +507,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="asc-aam-tdtm" data-filed-at="2026-04-29" data-closed-at="2026-04-30">
 <div class="card-id">asc-aam-tdtm</div>
 <div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</div>
 <div class="card-orgs">
@@ -444,7 +517,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="psc-financedept-tdtm" data-filed-at="2026-04-24" data-closed-at="2026-04-27">
 <div class="card-id">psc-financedept-tdtm</div>
 <div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (PSC AAM)</div>
 <div class="card-orgs">
@@ -454,7 +527,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="woo-processor-normalizer" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <div class="card-id">woo-processor-normalizer</div>
 <div class="card-title">Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</div>
 <div class="card-orgs">
@@ -464,7 +537,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="woocommerce-opp-fields" data-filed-at="2026-04-27" data-closed-at="2026-04-27">
 <div class="card-id">woocommerce-opp-fields</div>
 <div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
 <div class="card-orgs">
@@ -474,7 +547,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="ocr-scanline-image" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <div class="card-id">ocr-scanline-image</div>
 <div class="card-title">OCR-A scan-line image in Dryad receipts</div>
 <div class="card-orgs">
@@ -484,7 +557,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="task-delete-restriction" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <div class="card-id">task-delete-restriction</div>
 <div class="card-title">Task Delete Restriction (10 named users only)</div>
 <div class="card-orgs">
@@ -494,7 +567,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="dryad-templates" data-filed-at="2026-04-22" data-closed-at="2026-04-23">
 <div class="card-id">dryad-templates</div>
 <div class="card-title">Fix all email templates (Next Donation button hyperlink and broken images)</div>
 <div class="card-orgs">
@@ -504,7 +577,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> quarterly link-rot audit (in-prod data, not source-controlled)</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="smartystreets-account-verify" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <div class="card-id">smartystreets-account-verify</div>
 <div class="card-title">Address Verification button on Account: 'No address in the setting' error</div>
 <div class="card-orgs">
@@ -514,7 +587,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="diane-contact-merge-blocked" data-filed-at="2026-04-29" data-closed-at="2026-05-01">
 <div class="card-id">diane-contact-merge-blocked</div>
 <div class="card-title">Contact Merge blocked by Update Next Birthday flow</div>
 <div class="card-orgs">
@@ -524,7 +597,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="merge-and-delete-access-audit" data-filed-at="2026-04-29" data-closed-at="2026-05-06">
 <div class="card-id">merge-and-delete-access-audit</div>
 <div class="card-title">Merge &amp; Delete Access — audit 33 users vs Brian's worksheet</div>
 <div class="card-orgs">
@@ -534,7 +607,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="contact-account-address-inherit" data-filed-at="2026-05-01" data-closed-at="2026-05-04">
 <div class="card-id">contact-account-address-inherit</div>
 <div class="card-title">Contact Not Inheriting Account Address</div>
 <div class="card-orgs">
@@ -544,7 +617,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="mailing-address-subpremise-autocomplete" data-filed-at="2026-05-05" data-closed-at="2026-05-05">
 <div class="card-id">mailing-address-subpremise-autocomplete</div>
 <div class="card-title">Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</div>
 <div class="card-orgs">
@@ -554,7 +627,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="gau-allocation-refund-error" data-filed-at="2026-05-06" data-closed-at="2026-05-06">
 <div class="card-id">gau-allocation-refund-error</div>
 <div class="card-title">GAU Allocation refund error via US New Refund button</div>
 <div class="card-orgs">
@@ -564,7 +637,7 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
-<div class="card">
+<div class="card" data-stage="closed" data-id="woocommerce-source-system-mapping" data-filed-at="2026-05-04" data-closed-at="2026-05-04">
 <div class="card-id">woocommerce-source-system-mapping</div>
 <div class="card-title">Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</div>
 <div class="card-orgs">
@@ -579,7 +652,7 @@
 <div class="matrix-wrapper">
 <h2>Pipeline matrix</h2>
 <table><thead><tr><th>Ticket</th><th>Summary</th><th class='center'>MSMO</th><th class='center'>MSUSFULL</th><th class='center'>Prod</th><th>Stage</th><th>Next</th></tr></thead><tbody>
-<tr>
+<tr data-stage="closed" data-id="woo-store-tribute-allocation" data-filed-at="2026-05-07" data-closed-at="2026-05-07">
 <td class="id">woo-store-tribute-allocation</td>
 <td>Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</td>
 <td class="center">✅</td>
@@ -588,7 +661,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="msid-multiline" data-filed-at="2026-04-22" data-closed-at="2026-04-22">
 <td class="id">msid-multiline</td>
 <td>MSID multi-line MailingStreet</td>
 <td class="center">✅</td>
@@ -597,7 +670,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>242-Contact silent-failure sweep · MSUSFULL APIM key repaste</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="ty-letter-5bucket-delivery" data-filed-at="2026-04-23" data-closed-at="2026-04-23">
 <td class="id">ty-letter-5bucket-delivery</td>
 <td>Mailing Deliverability automation – auto-select correct template based on contact</td>
 <td class="center">✅</td>
@@ -606,7 +679,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>manifest cleanup: collapse into ty-letter-rollup-async (same class)</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="protect-4-opp-fields" data-filed-at="2026-04-23" data-closed-at="2026-04-23">
 <td class="id">protect-4-opp-fields</td>
 <td>Protect 4 Opportunity fields on migrated records</td>
 <td class="center">✅</td>
@@ -615,7 +688,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="campaign-fdc-tdtm" data-filed-at="2026-04-24" data-closed-at="2026-04-27">
 <td class="id">campaign-fdc-tdtm</td>
 <td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
 <td class="center">✅</td>
@@ -624,7 +697,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="asc-aam-tdtm" data-filed-at="2026-04-29" data-closed-at="2026-04-30">
 <td class="id">asc-aam-tdtm</td>
 <td>RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</td>
 <td class="center">✅</td>
@@ -633,7 +706,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="psc-financedept-tdtm" data-filed-at="2026-04-24" data-closed-at="2026-04-27">
 <td class="id">psc-financedept-tdtm</td>
 <td>RDM Account assignment – auto-population on Account Soft Credits (PSC AAM)</td>
 <td class="center">✅</td>
@@ -642,7 +715,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>release pipeline to Prod</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="woo-processor-normalizer" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <td class="id">woo-processor-normalizer</td>
 <td>Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</td>
 <td class="center">✅</td>
@@ -651,7 +724,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="woocommerce-opp-fields" data-filed-at="2026-04-27" data-closed-at="2026-04-27">
 <td class="id">woocommerce-opp-fields</td>
 <td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
 <td class="center">✅</td>
@@ -660,7 +733,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="ocr-scanline-image" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <td class="id">ocr-scanline-image</td>
 <td>OCR-A scan-line image in Dryad receipts</td>
 <td class="center">⚠</td>
@@ -669,7 +742,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="task-delete-restriction" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <td class="id">task-delete-restriction</td>
 <td>Task Delete Restriction (10 named users only)</td>
 <td class="center">✅</td>
@@ -678,7 +751,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="dryad-templates" data-filed-at="2026-04-22" data-closed-at="2026-04-23">
 <td class="id">dryad-templates</td>
 <td>Fix all email templates (Next Donation button hyperlink and broken images)</td>
 <td class="center">·</td>
@@ -687,7 +760,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>quarterly link-rot audit (in-prod data, not source-controlled)</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="smartystreets-account-verify" data-filed-at="2026-04-29" data-closed-at="2026-04-29">
 <td class="id">smartystreets-account-verify</td>
 <td>Address Verification button on Account: 'No address in the setting' error</td>
 <td class="center">·</td>
@@ -696,7 +769,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="diane-contact-merge-blocked" data-filed-at="2026-04-29" data-closed-at="2026-05-01">
 <td class="id">diane-contact-merge-blocked</td>
 <td>Contact Merge blocked by Update Next Birthday flow</td>
 <td class="center">✅</td>
@@ -705,7 +778,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="merge-and-delete-access-audit" data-filed-at="2026-04-29" data-closed-at="2026-05-06">
 <td class="id">merge-and-delete-access-audit</td>
 <td>Merge &amp; Delete Access — audit 33 users vs Brian's worksheet</td>
 <td class="center">·</td>
@@ -714,7 +787,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="contact-account-address-inherit" data-filed-at="2026-05-01" data-closed-at="2026-05-04">
 <td class="id">contact-account-address-inherit</td>
 <td>Contact Not Inheriting Account Address</td>
 <td class="center">·</td>
@@ -723,7 +796,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="mailing-address-subpremise-autocomplete" data-filed-at="2026-05-05" data-closed-at="2026-05-05">
 <td class="id">mailing-address-subpremise-autocomplete</td>
 <td>Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</td>
 <td class="center">·</td>
@@ -732,7 +805,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="gau-allocation-refund-error" data-filed-at="2026-05-06" data-closed-at="2026-05-06">
 <td class="id">gau-allocation-refund-error</td>
 <td>GAU Allocation refund error via US New Refund button</td>
 <td class="center">✅</td>
@@ -741,7 +814,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="closed" data-id="woocommerce-source-system-mapping" data-filed-at="2026-05-04" data-closed-at="2026-05-04">
 <td class="id">woocommerce-source-system-mapping</td>
 <td>Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</td>
 <td class="center">✅</td>
@@ -750,7 +823,7 @@
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="in_prod_open" data-id="opp-close-date-flow-limit" data-filed-at="2026-05-07" data-closed-at="">
 <td class="id">opp-close-date-flow-limit</td>
 <td>CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</td>
 <td class="center">✅</td>
@@ -759,7 +832,7 @@
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="in_prod_open" data-id="opportunity-restore-aftermdelete-npe" data-filed-at="2026-05-07" data-closed-at="">
 <td class="id">opportunity-restore-aftermdelete-npe</td>
 <td>Opportunity Restore Failure (After Undelete Trigger Error)</td>
 <td class="center">✅</td>
@@ -768,7 +841,7 @@
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="in_prod_open" data-id="ty-letter-rollup-async" data-filed-at="2026-04-25" data-closed-at="">
 <td class="id">ty-letter-rollup-async</td>
 <td>Thank You letter codes for Recurring Donation Opportunities</td>
 <td class="center">✅</td>
@@ -777,7 +850,7 @@
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
 </tr>
-<tr>
+<tr data-stage="in_prod_open" data-id="allocation-financedept-tdtm" data-filed-at="2026-04-24" data-closed-at="">
 <td class="id">allocation-financedept-tdtm</td>
 <td>RDM Account assignment – auto-population on GAU Allocation</td>
 <td class="center">✅</td>
@@ -786,7 +859,7 @@
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>release pipeline to Prod</td>
 </tr>
-<tr>
+<tr data-stage="in_prod_open" data-id="searchable-record-id" data-filed-at="2026-04-24" data-closed-at="">
 <td class="id">searchable-record-id</td>
 <td>Global Search to support searching by Salesforce Record ID</td>
 <td class="center">✅</td>
@@ -795,7 +868,7 @@
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
 </tr>
-<tr>
+<tr data-stage="in_prod_open" data-id="tribute-type-on-opportunity" data-filed-at="2026-05-08" data-closed-at="">
 <td class="id">tribute-type-on-opportunity</td>
 <td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
 <td class="center">✅</td>
@@ -804,7 +877,7 @@
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="in_sandbox" data-id="allocation-fdc-batchable-deploy" data-filed-at="2026-04-29" data-closed-at="">
 <td class="id">allocation-fdc-batchable-deploy</td>
 <td>Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</td>
 <td class="center">—</td>
@@ -813,7 +886,7 @@
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
 <td>—</td>
 </tr>
-<tr>
+<tr data-stage="in_dev" data-id="searchable-record-id-extension" data-filed-at="2026-04-24" data-closed-at="">
 <td class="id">searchable-record-id-extension</td>
 <td>Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</td>
 <td class="center">·</td>
@@ -822,7 +895,7 @@
 <td class="stage"><span class="dev">🟡 In Dev</span></td>
 <td>parked — pick up when business asks for record-Id search on Campaign / RD / GAU</td>
 </tr>
-<tr>
+<tr data-stage="in_dev" data-id="eoy-tax-receipt" data-filed-at="2026-05-07" data-closed-at="">
 <td class="id">eoy-tax-receipt</td>
 <td>End of year Tax Statement Email Templates</td>
 <td class="center">·</td>
@@ -831,7 +904,7 @@
 <td class="stage"><span class="dev">🟡 In Dev</span></td>
 <td>Client sign-off → architect gate → ~1.5wk build phase</td>
 </tr>
-<tr>
+<tr data-stage="in_dev" data-id="opp-bulk-import-cpu-limit" data-filed-at="2026-05-07" data-closed-at="">
 <td class="id">opp-bulk-import-cpu-limit</td>
 <td>Opportunity bulk-import lock-row + data-skew failures</td>
 <td class="center">·</td>
@@ -843,4 +916,194 @@
 </tbody></table>
 </div>
 <div class="footer">Detail per ticket lives in <code>MERCY_SHIPS_LOG.md</code>. This file is generated; do not hand-edit. Glyph key: ✅ live · ⚠ partial · ⏳ awaiting · — not yet · · n/a · 🛑 query error.</div>
+<script id="dashboardData" type="application/json">{"current_week_id": "2026-W19", "weeks": [{"id": "2026-W19", "label": "May 4\u201310", "start": "2026-05-04", "end": "2026-05-10", "is_current": true}, {"id": "2026-W18", "label": "Apr 27 \u2013 May 3", "start": "2026-04-27", "end": "2026-05-03", "is_current": false}, {"id": "2026-W17", "label": "Apr 20\u201326", "start": "2026-04-20", "end": "2026-04-26", "is_current": false}], "history": {"2026-W19": [], "2026-W18": [{"id": "ty-letter-rollup-async", "summary": "Thank You letter codes for Recurring Donation Opportunities", "stage": "open", "filed_at": "2026-04-25", "closed_at": null}, {"id": "campaign-fdc-tdtm", "summary": "Campaign hierarchy \u2013 auto-population of Finance Department Code from parent to child campaigns", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "allocation-financedept-tdtm", "summary": "RDM Account assignment \u2013 auto-population on GAU Allocation", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "asc-aam-tdtm", "summary": "RDM Account assignment \u2013 auto-population on Account Soft Credits (ASC AAM)", "stage": "open", "filed_at": "2026-04-29", "closed_at": null}, {"id": "psc-financedept-tdtm", "summary": "RDM Account assignment \u2013 auto-population on Account Soft Credits (PSC AAM)", "stage": "closed", "filed_at": "2026-04-24", "closed_at": "2026-04-27"}, {"id": "searchable-record-id", "summary": "Global Search to support searching by Salesforce Record ID", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "dupe-rules-woocommerce", "summary": "Optimize MSUS Account & MSUS Contact duplicate rules (WooCommerce integration)", "stage": "open", "filed_at": "2026-04-27", "closed_at": null}, {"id": "woocommerce-opp-fields", "summary": "Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce", "stage": "closed", "filed_at": "2026-04-27", "closed_at": "2026-04-27"}, {"id": "searchable-record-id-extension", "summary": "Global Search \u2014 extend to other objects (Campaign / Recurring Donation / GAU)", "stage": "new", "filed_at": "2026-04-24", "closed_at": null}, {"id": "ocr-scanline-image", "summary": "OCR-A scan-line image in Dryad receipts", "stage": "open", "filed_at": "2026-04-29", "closed_at": null}, {"id": "task-delete-restriction", "summary": "Task Delete Restriction (10 named users only)", "stage": "open", "filed_at": "2026-04-29", "closed_at": null}, {"id": "eoy-tax-receipt", "summary": "End of year Tax Statement Email Templates", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "smartystreets-account-verify", "summary": "Address Verification button on Account: 'No address in the setting' error", "stage": "closed", "filed_at": "2026-04-29", "closed_at": "2026-04-29"}], "2026-W17": [{"id": "msid-multiline", "summary": "MSID multi-line MailingStreet", "stage": "closed", "filed_at": "2026-04-22", "closed_at": "2026-04-22"}, {"id": "ty-letter-5bucket-delivery", "summary": "5-bucket TY codes + delivery-aware Receipt Template", "stage": "closed", "filed_at": "2026-04-23", "closed_at": "2026-04-23"}, {"id": "protect-4-opp-fields", "summary": "Protect 4 fields on migrated Opps", "stage": "closed", "filed_at": "2026-04-23", "closed_at": "2026-04-23"}, {"id": "ty-letter-rollup-async", "summary": "TY-letter rollup-async (3 races)", "stage": "open", "filed_at": "2026-04-25", "closed_at": null}, {"id": "campaign-fdc-tdtm", "summary": "Campaign FDC parent\u2192child cascade", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "allocation-financedept-tdtm", "summary": "Allocation FDC TDTM (GAU branch)", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "psc-financedept-tdtm", "summary": "PSC AAM TDTM", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "searchable-record-id", "summary": "Searchable Record ID \u2014 extension + activation", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}, {"id": "dryad-templates", "summary": "Dryad receipt PDF templates (EN+ES)", "stage": "closed", "filed_at": "2026-04-22", "closed_at": "2026-04-23"}, {"id": "eoy-tax-receipt", "summary": "EOY consolidated tax receipt", "stage": "open", "filed_at": "2026-04-24", "closed_at": null}]}, "stage_meta": {"new": {"label": "\ud83c\udd95 New", "css": "backlog"}, "open": {"label": "\ud83d\udd35 Open", "css": "in-prod"}, "closed": {"label": "\u2705 Closed", "css": "closed"}}}</script>
+<script>
+(function() {
+  var dataEl = document.getElementById('dashboardData');
+  if (!dataEl) return;
+  var data;
+  try { data = JSON.parse(dataEl.textContent); } catch (e) { return; }
+
+  var sel = document.getElementById('weekFilter');
+  var hint = document.getElementById('filterHint');
+  var kanban = document.querySelector('.kanban');
+  var matrix = document.querySelector('.matrix-wrapper');
+  if (!sel || !kanban) return;
+
+  var originalKanbanHTML = kanban.innerHTML;
+
+  function findWeek(id) {
+    for (var i = 0; i < data.weeks.length; i++) {
+      if (data.weeks[i].id === id) return data.weeks[i];
+    }
+    return null;
+  }
+
+  function inWeek(dateStr, week) {
+    if (!dateStr || !week) return false;
+    return dateStr >= week.start && dateStr <= week.end;
+  }
+
+  function escapeHTML(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function ensureOriginalKanban() {
+    if (kanban.dataset.mode !== 'live') {
+      kanban.classList.remove('historical');
+      kanban.innerHTML = originalKanbanHTML;
+      kanban.dataset.mode = 'live';
+    }
+  }
+
+  function applyAllTime() {
+    ensureOriginalKanban();
+    document.querySelectorAll('.kanban .card').forEach(function(c) { c.style.display = ''; });
+    document.querySelectorAll('.matrix-wrapper tbody tr').forEach(function(r) { r.style.display = ''; });
+    matrix && matrix.removeAttribute('hidden');
+    updateCounts();
+    if (hint) hint.textContent = '';
+    removeHistoricalNote();
+  }
+
+  function applyCurrentWeek(week) {
+    ensureOriginalKanban();
+    var fn = function(el) {
+      var stage = el.dataset.stage;
+      var filedAt = el.dataset.filedAt || '';
+      var closedAt = el.dataset.closedAt || '';
+      var visible;
+      if (stage === 'closed') {
+        visible = inWeek(closedAt, week);
+      } else {
+        // Open trickle: visible if filed by end-of-week
+        visible = !filedAt || filedAt <= week.end;
+      }
+      el.style.display = visible ? '' : 'none';
+    };
+    document.querySelectorAll('.kanban .card').forEach(fn);
+    document.querySelectorAll('.matrix-wrapper tbody tr').forEach(fn);
+    matrix && matrix.removeAttribute('hidden');
+    updateCounts();
+    if (hint) hint.textContent = 'Closed: items closed during this week. Open columns: items still open as of week end (trickle).';
+    removeHistoricalNote();
+  }
+
+  function applyHistoricalWeek(week) {
+    var items = (data.history && data.history[week.id]) || [];
+    var byStage = { new: [], open: [], closed: [] };
+    items.forEach(function(it) {
+      if (byStage[it.stage]) byStage[it.stage].push(it);
+    });
+
+    var stageOrder = ['new', 'open', 'closed'];
+    var html = '';
+    stageOrder.forEach(function(stage) {
+      var meta = data.stage_meta[stage];
+      var bucket = byStage[stage];
+      html += '<div class="col ' + meta.css + '">';
+      html += '<div class="col-header"><span>' + meta.label + '</span>';
+      html += '<span class="col-count">' + bucket.length + '</span></div>';
+      if (bucket.length === 0) {
+        html += '<div style="color:#94a3b8;font-size:12px;font-style:italic;">none</div>';
+      }
+      bucket.forEach(function(it) {
+        html += '<div class="card">';
+        html += '<div class="card-id">' + escapeHTML(it.id) + '</div>';
+        html += '<div class="card-title">' + escapeHTML(it.summary || '') + '</div>';
+        var meta2 = '';
+        if (it.filed_at) meta2 += 'filed ' + escapeHTML(it.filed_at);
+        if (it.closed_at && stage === 'closed') {
+          meta2 += (meta2 ? ' · ' : '') + 'closed ' + escapeHTML(it.closed_at);
+        }
+        if (meta2) {
+          html += '<div class="card-next" style="border-top:none;padding-top:4px;">' + meta2 + '</div>';
+        }
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+    kanban.innerHTML = html;
+    kanban.classList.add('historical');
+    kanban.dataset.mode = 'historical';
+
+    matrix && matrix.setAttribute('hidden', '');
+    updateCountsFromHistorical(byStage);
+    if (hint) {
+      hint.textContent = 'Snapshot from manifest as of ' + week.end + ' 23:59 CT. Stage detail collapsed (no historical org sweep).';
+    }
+    addHistoricalNote(week);
+  }
+
+  function updateCounts() {
+    var counts = { closed: 0, in_prod_open: 0, in_sandbox: 0, in_dev: 0, backlog: 0 };
+    document.querySelectorAll('.kanban .card').forEach(function(c) {
+      if (c.style.display === 'none') return;
+      var s = c.dataset.stage;
+      if (counts[s] !== undefined) counts[s]++;
+    });
+    document.querySelectorAll('#counts .pill').forEach(function(pill) {
+      var stage = pill.dataset.stage;
+      var n = pill.querySelector('.pill-count');
+      if (n && counts[stage] !== undefined) n.textContent = counts[stage];
+    });
+  }
+
+  function updateCountsFromHistorical(byStage) {
+    document.querySelectorAll('#counts .pill').forEach(function(pill) {
+      var stage = pill.dataset.stage;
+      var n = pill.querySelector('.pill-count');
+      if (!n) return;
+      if (stage === 'closed') n.textContent = byStage.closed.length;
+      else if (stage === 'backlog') n.textContent = byStage.new.length;
+      else if (stage === 'in_prod_open') n.textContent = byStage.open.length;
+      else n.textContent = '–';
+    });
+  }
+
+  function addHistoricalNote(week) {
+    removeHistoricalNote();
+    var note = document.createElement('div');
+    note.className = 'historical-note';
+    note.id = 'historicalNote';
+    note.innerHTML = '📅 <strong>Historical snapshot</strong> — manifest as of ' +
+      escapeHTML(week.end) + '. Past-week views show open/closed buckets only; ' +
+      '"In Sandbox" / "In Dev" detail isn\'t reconstructable without re-running ' +
+      'the org sweep at that point in time.';
+    kanban.parentNode.insertBefore(note, kanban);
+  }
+
+  function removeHistoricalNote() {
+    var existing = document.getElementById('historicalNote');
+    if (existing) existing.remove();
+  }
+
+  function apply(viewId) {
+    if (viewId === 'all-time') {
+      applyAllTime();
+      return;
+    }
+    var week = findWeek(viewId);
+    if (!week) {
+      applyAllTime();
+      return;
+    }
+    if (week.is_current) {
+      applyCurrentWeek(week);
+    } else {
+      applyHistoricalWeek(week);
+    }
+  }
+
+  // Default to current week (Jira-style: this-week is the working view).
+  if (data.current_week_id) {
+    sel.value = data.current_week_id;
+    apply(data.current_week_id);
+  }
+
+  sel.addEventListener('change', function() { apply(sel.value); });
+})();
+</script>
 </div></body></html>
