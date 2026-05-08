@@ -238,22 +238,13 @@
     @media (max-width: 540px) {
       .kanban.historical { grid-template-columns: 1fr; }
     }
-    .historical-note {
-      background: #fef3c7;
-      border: 1px solid #fbbf24;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin-bottom: 14px;
-      font-size: 12px;
-      color: #78350f;
-    }
     .matrix-wrapper.hidden, .matrix-wrapper[hidden] { display: none; }
     </style>
 </head><body>
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-08 14:35 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-08 14:48 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts" id="counts">
 <span class="pill closed" data-stage="closed">✅ <span class="pill-count">19</span> Closed</span>
 <span class="pill in-prod" data-stage="in_prod_open">🟢 <span class="pill-count">6</span> In Prod (Open)</span>
@@ -965,7 +956,6 @@
     matrix && matrix.removeAttribute('hidden');
     updateCounts();
     if (hint) hint.textContent = '';
-    removeHistoricalNote();
   }
 
   function applyCurrentWeek(week) {
@@ -988,7 +978,6 @@
     matrix && matrix.removeAttribute('hidden');
     updateCounts();
     if (hint) hint.textContent = 'Closed: items closed during this week. Open columns: items still open as of week end (trickle).';
-    removeHistoricalNote();
   }
 
   function applyHistoricalWeek(week) {
@@ -1034,7 +1023,6 @@
     if (hint) {
       hint.textContent = 'Snapshot from manifest as of ' + week.end + ' 23:59 CT. Stage detail collapsed (no historical org sweep).';
     }
-    addHistoricalNote(week);
   }
 
   function updateCounts() {
@@ -1061,23 +1049,6 @@
       else if (stage === 'in_prod_open') n.textContent = byStage.open.length;
       else n.textContent = '–';
     });
-  }
-
-  function addHistoricalNote(week) {
-    removeHistoricalNote();
-    var note = document.createElement('div');
-    note.className = 'historical-note';
-    note.id = 'historicalNote';
-    note.innerHTML = '📅 <strong>Historical snapshot</strong> — manifest as of ' +
-      escapeHTML(week.end) + '. Past-week views show open/closed buckets only; ' +
-      '"In Sandbox" / "In Dev" detail isn\'t reconstructable without re-running ' +
-      'the org sweep at that point in time.';
-    kanban.parentNode.insertBefore(note, kanban);
-  }
-
-  function removeHistoricalNote() {
-    var existing = document.getElementById('historicalNote');
-    if (existing) existing.remove();
   }
 
   function apply(viewId) {
