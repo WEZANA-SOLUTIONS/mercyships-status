@@ -244,12 +244,11 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-09 07:10 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-09 07:31 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts" id="counts">
 <span class="pill closed" data-stage="closed">✅ <span class="pill-count">21</span> Closed</span>
 <span class="pill in-prod" data-stage="in_prod_open">🟢 <span class="pill-count">7</span> In Prod (Open)</span>
-<span class="pill sandbox" data-stage="in_sandbox">🟠 <span class="pill-count">1</span> In Sandbox</span>
-<span class="pill dev" data-stage="in_dev">🟡 <span class="pill-count">2</span> In Dev</span>
+<span class="pill sandbox" data-stage="in_sandbox">🟠 <span class="pill-count">3</span> In Development (Sandbox)</span>
 <span class="pill backlog" data-stage="backlog">🆕 <span class="pill-count">8</span> New</span>
 </div>
 <div class="filter-row">
@@ -347,9 +346,19 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 </div>
-<div class="col dev">
-<div class="col-header"><span>🟡 In Dev</span><span class="col-count">2</span></div>
-<div class="card" data-stage="in_dev" data-id="eoy-tax-receipt" data-filed-at="2026-05-09" data-closed-at="">
+<div class="col sandbox">
+<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">3</span></div>
+<div class="card" data-stage="in_sandbox" data-id="allocation-fdc-batchable-deploy" data-filed-at="2026-04-29" data-closed-at="">
+<div class="card-id">allocation-fdc-batchable-deploy</div>
+<div class="card-title">Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO —</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ⏳</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card" data-stage="in_sandbox" data-id="eoy-tax-receipt" data-filed-at="2026-05-09" data-closed-at="">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
 <div class="card-orgs">
@@ -359,26 +368,13 @@
 </div>
 <div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
 </div>
-<div class="card" data-stage="in_dev" data-id="opp-bulk-import-cpu-limit" data-filed-at="2026-05-07" data-closed-at="">
+<div class="card" data-stage="in_sandbox" data-id="opp-bulk-import-cpu-limit" data-filed-at="2026-05-07" data-closed-at="">
 <div class="card-id">opp-bulk-import-cpu-limit</div>
 <div class="card-title">Opportunity bulk-import lock-row + data-skew failures</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
 <span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-</div>
-<div class="col sandbox">
-<div class="col-header"><span>🟠 In Sandbox</span><span class="col-count">1</span></div>
-<div class="card" data-stage="in_sandbox" data-id="allocation-fdc-batchable-deploy" data-filed-at="2026-04-29" data-closed-at="">
-<div class="card-id">allocation-fdc-batchable-deploy</div>
-<div class="card-title">Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO —</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ⏳</span>
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
@@ -931,25 +927,25 @@
 <td class="center">—</td>
 <td class="center">✅</td>
 <td class="center">⏳</td>
-<td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
 <td>—</td>
 </tr>
-<tr data-stage="in_dev" data-id="eoy-tax-receipt" data-filed-at="2026-05-09" data-closed-at="">
+<tr data-stage="in_sandbox" data-id="eoy-tax-receipt" data-filed-at="2026-05-09" data-closed-at="">
 <td class="id">eoy-tax-receipt</td>
 <td>End of year Tax Statement Email Templates</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
-<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
 <td>Client sign-off → architect gate → ~1.5wk build phase</td>
 </tr>
-<tr data-stage="in_dev" data-id="opp-bulk-import-cpu-limit" data-filed-at="2026-05-07" data-closed-at="">
+<tr data-stage="in_sandbox" data-id="opp-bulk-import-cpu-limit" data-filed-at="2026-05-07" data-closed-at="">
 <td class="id">opp-bulk-import-cpu-limit</td>
 <td>Opportunity bulk-import lock-row + data-skew failures</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
-<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
 <td>—</td>
 </tr>
 </tbody></table>
@@ -1074,7 +1070,7 @@
   }
 
   function updateCounts() {
-    var counts = { closed: 0, in_prod_open: 0, in_sandbox: 0, in_dev: 0, backlog: 0 };
+    var counts = { closed: 0, in_prod_open: 0, in_sandbox: 0, backlog: 0 };
     document.querySelectorAll('.kanban .card').forEach(function(c) {
       if (c.style.display === 'none') return;
       var s = c.dataset.stage;
