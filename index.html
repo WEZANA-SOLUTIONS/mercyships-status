@@ -201,16 +201,16 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-11 02:26 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-11 02:38 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 20 Closed</span>
+<span class="pill closed">✅ 22 Closed</span>
 <span class="pill in-prod">🟢 7 In Prod (Open)</span>
-<span class="pill sandbox">🟠 4 In Development (Sandbox)</span>
-<span class="pill backlog">🆕 8 New</span>
+<span class="pill sandbox">🟠 3 In Development (Sandbox)</span>
+<span class="pill backlog">🆕 7 New</span>
 </div></div>
 <div class="kanban">
 <div class="col backlog">
-<div class="col-header"><span>🆕 New</span><span class="col-count">8</span></div>
+<div class="col-header"><span>🆕 New</span><span class="col-count">7</span></div>
 <div class="card">
 <div class="card-id">ty-letter-spec-alignment</div>
 <div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
@@ -224,16 +224,6 @@
 <div class="card">
 <div class="card-id">key-donor-fields-readonly</div>
 <div class="card-title">Make Key Donor Fields Read-Only for MSUS users</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">missing-campaign-members</div>
-<div class="card-title">Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -293,17 +283,7 @@
 </div>
 </div>
 <div class="col sandbox">
-<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">4</span></div>
-<div class="card">
-<div class="card-id">protect-4-opp-fields</div>
-<div class="card-title">Protect 4 Opportunity fields on migrated records</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod 🛑</span>
-</div>
-<div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
-</div>
+<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">3</span></div>
 <div class="card">
 <div class="card-id">allocation-fdc-batchable-deploy</div>
 <div class="card-title">Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</div>
@@ -409,7 +389,7 @@
 </div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">20</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">22</span></div>
 <div class="card">
 <div class="card-id">woo-store-tribute-allocation</div>
 <div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
@@ -439,6 +419,16 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> manifest cleanup: collapse into ty-letter-rollup-async (same class)</div>
+</div>
+<div class="card">
+<div class="card-id">protect-4-opp-fields</div>
+<div class="card-title">Protect 4 Opportunity fields on migrated records</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
 </div>
 <div class="card">
 <div class="card-id">campaign-fdc-tdtm</div>
@@ -601,6 +591,16 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
+<div class="card-id">missing-campaign-members</div>
+<div class="card-title">Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
 <div class="card-id">c21-donorfile-closedate-rewrite</div>
 <div class="card-title">C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</div>
 <div class="card-orgs">
@@ -641,6 +641,15 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>manifest cleanup: collapse into ty-letter-rollup-async (same class)</td>
+</tr>
+<tr>
+<td class="id">protect-4-opp-fields</td>
+<td>Protect 4 Opportunity fields on migrated records</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
 <tr>
 <td class="id">campaign-fdc-tdtm</td>
@@ -787,6 +796,15 @@
 <td>—</td>
 </tr>
 <tr>
+<td class="id">missing-campaign-members</td>
+<td>Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">c21-donorfile-closedate-rewrite</td>
 <td>C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</td>
 <td class="center">·</td>
@@ -857,15 +875,6 @@
 <td class="center">✅</td>
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>—</td>
-</tr>
-<tr>
-<td class="id">protect-4-opp-fields</td>
-<td>Protect 4 Opportunity fields on migrated records</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">🛑</td>
-<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
-<td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
 <tr>
 <td class="id">allocation-fdc-batchable-deploy</td>
