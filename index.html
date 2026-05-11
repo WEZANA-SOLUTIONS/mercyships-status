@@ -201,10 +201,10 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-11 06:45 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-11 11:12 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 22 Closed</span>
-<span class="pill in-prod">🟢 7 In Prod (Open)</span>
+<span class="pill closed">✅ 27 Closed</span>
+<span class="pill in-prod">🟢 2 In Prod (Open)</span>
 <span class="pill sandbox">🟠 4 In Development (Sandbox)</span>
 <span class="pill backlog">🆕 6 New</span>
 </div></div>
@@ -316,7 +316,40 @@
 </div>
 </div>
 <div class="col in-prod">
-<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">7</span></div>
+<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">2</span></div>
+<div class="card">
+<div class="card-id">allocation-financedept-tdtm</div>
+<div class="card-title">RDM Account assignment – auto-population on GAU Allocation</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
+</div>
+<div class="card">
+<div class="card-id">ty-letter-spec-alignment</div>
+<div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+</div>
+<div class="col closed">
+<div class="col-header"><span>✅ Closed</span><span class="col-count">27</span></div>
+<div class="card">
+<div class="card-id">woo-store-tribute-allocation</div>
+<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
 <div class="card">
 <div class="card-id">opp-close-date-flow-limit</div>
 <div class="card-title">CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</div>
@@ -330,69 +363,6 @@
 <div class="card">
 <div class="card-id">opportunity-restore-aftermdelete-npe</div>
 <div class="card-title">Opportunity Restore Failure (After Undelete Trigger Error)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">ty-letter-rollup-async</div>
-<div class="card-title">Thank You letter codes for Recurring Donation Opportunities</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</div>
-</div>
-<div class="card">
-<div class="card-id">allocation-financedept-tdtm</div>
-<div class="card-title">RDM Account assignment – auto-population on GAU Allocation</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
-</div>
-<div class="card">
-<div class="card-id">searchable-record-id</div>
-<div class="card-title">Global Search to support searching by Salesforce Record ID</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
-</div>
-<div class="card">
-<div class="card-id">ty-letter-spec-alignment</div>
-<div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">tribute-type-on-opportunity</div>
-<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-</div>
-<div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">22</span></div>
-<div class="card">
-<div class="card-id">woo-store-tribute-allocation</div>
-<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -431,6 +401,16 @@
 <div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
 </div>
 <div class="card">
+<div class="card-id">ty-letter-rollup-async</div>
+<div class="card-title">Thank You letter codes for Recurring Donation Opportunities</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</div>
+</div>
+<div class="card">
 <div class="card-id">campaign-fdc-tdtm</div>
 <div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
 <div class="card-orgs">
@@ -459,6 +439,16 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
+</div>
+<div class="card">
+<div class="card-id">searchable-record-id</div>
+<div class="card-title">Global Search to support searching by Salesforce Record ID</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
 </div>
 <div class="card">
 <div class="card-id">woo-processor-normalizer</div>
@@ -523,6 +513,16 @@
 <div class="card">
 <div class="card-id">smartystreets-account-verify</div>
 <div class="card-title">Address Verification button on Account: 'No address in the setting' error</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">tribute-type-on-opportunity</div>
+<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -625,6 +625,24 @@
 <td>—</td>
 </tr>
 <tr>
+<td class="id">opp-close-date-flow-limit</td>
+<td>CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">opportunity-restore-aftermdelete-npe</td>
+<td>Opportunity Restore Failure (After Undelete Trigger Error)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">msid-multiline</td>
 <td>MSID multi-line MailingStreet</td>
 <td class="center">·</td>
@@ -652,6 +670,15 @@
 <td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
 <tr>
+<td class="id">ty-letter-rollup-async</td>
+<td>Thank You letter codes for Recurring Donation Opportunities</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
+</tr>
+<tr>
 <td class="id">campaign-fdc-tdtm</td>
 <td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
 <td class="center">·</td>
@@ -677,6 +704,15 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>release pipeline to Prod</td>
+</tr>
+<tr>
+<td class="id">searchable-record-id</td>
+<td>Global Search to support searching by Salesforce Record ID</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
 </tr>
 <tr>
 <td class="id">woo-processor-normalizer</td>
@@ -735,6 +771,15 @@
 <tr>
 <td class="id">smartystreets-account-verify</td>
 <td>Address Verification button on Account: 'No address in the setting' error</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">tribute-type-on-opportunity</td>
+<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">✅</td>
@@ -814,33 +859,6 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">opp-close-date-flow-limit</td>
-<td>CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">opportunity-restore-aftermdelete-npe</td>
-<td>Opportunity Restore Failure (After Undelete Trigger Error)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">ty-letter-rollup-async</td>
-<td>Thank You letter codes for Recurring Donation Opportunities</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
-</tr>
-<tr>
 <td class="id">allocation-financedept-tdtm</td>
 <td>RDM Account assignment – auto-population on GAU Allocation</td>
 <td class="center">·</td>
@@ -850,26 +868,8 @@
 <td>release pipeline to Prod</td>
 </tr>
 <tr>
-<td class="id">searchable-record-id</td>
-<td>Global Search to support searching by Salesforce Record ID</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
-</tr>
-<tr>
 <td class="id">ty-letter-spec-alignment</td>
 <td>TY Letter — refactor against client call notes 2026-04-29</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">tribute-type-on-opportunity</td>
-<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">✅</td>
