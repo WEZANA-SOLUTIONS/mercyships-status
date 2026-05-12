@@ -201,40 +201,90 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-11 20:11 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-05-11 20:59 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 5 Closed</span>
+<span class="pill closed">✅ 20 Closed</span>
 <span class="pill in-prod">🟢 6 In Prod (Open)</span>
 <span class="pill sandbox">🟠 3 In Sandbox</span>
 <span class="pill dev">🟡 3 In Dev</span>
-<span class="pill backlog">🆕 1 New</span>
+<span class="pill backlog">🆕 7 New</span>
 </div></div>
 <div class="kanban">
 <div class="col backlog">
-<div class="col-header"><span>🆕 New</span><span class="col-count">1</span></div>
+<div class="col-header"><span>🆕 New</span><span class="col-count">7</span></div>
 <div class="card">
-<div class="card-id">searchable-record-id-extension</div>
-<div class="card-title">Global Search — extend to other objects (Campaign / Recurring Donation / GAU)</div>
+<div class="card-id">ty-letter-spec-alignment</div>
+<div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
 <span class="org-tag">Prod ⚪</span>
 </div>
-<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">key-donor-fields-readonly</div>
+<div class="card-title">Make Key Donor Fields Read-Only for MSUS users</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">missing-campaign-members</div>
+<div class="card-title">Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">xl-connector-contact-import-householding</div>
+<div class="card-title">XL Connector contact import — review + safer NPSP-householding process</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gomeddo-position-commitment-level</div>
+<div class="card-title">[GoMeddo] Add Position Commitment Level field on positions (GM-001)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gomeddo-sub-position-category</div>
+<div class="card-title">[GoMeddo] Add Sub-Position Category field on positions (GM-002)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gomeddo-minimum-commitment</div>
+<div class="card-title">[GoMeddo] Add Minimum Commitment field on positions (GM-003)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 </div>
 <div class="col dev">
 <div class="col-header"><span>🟡 In Dev</span><span class="col-count">3</span></div>
-<div class="card">
-<div class="card-id">dupe-rules-woocommerce</div>
-<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
-</div>
 <div class="card">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
@@ -244,6 +294,16 @@
 <span class="org-tag">Prod ⚪</span>
 </div>
 <div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
+</div>
+<div class="card">
+<div class="card-id">opp-bulk-import-cpu-limit</div>
+<div class="card-title">Opportunity bulk-import lock-row + data-skew failures</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
 <div class="card-id">deceased-contact-household-account-behavior</div>
@@ -279,27 +339,37 @@
 <div class="card-next"><strong>Next:</strong> touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</div>
 </div>
 <div class="card">
-<div class="card-id">woocommerce-opp-fields</div>
-<div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
+<div class="card-id">allocation-fdc-batchable-deploy</div>
+<div class="card-title">Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</div>
 <div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSMO —</span>
 <span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ❌</span>
+<span class="org-tag">Prod ⏳</span>
 </div>
-<div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 </div>
 <div class="col in-prod">
 <div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">6</span></div>
 <div class="card">
-<div class="card-id">campaign-fdc-tdtm</div>
-<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
+<div class="card-id">opp-close-date-flow-limit</div>
+<div class="card-title">CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ✅</span>
 <span class="org-tag">MSUSFULL ✅</span>
 <span class="org-tag">Prod ✅</span>
 </div>
-<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">opportunity-restore-aftermdelete-npe</div>
+<div class="card-title">Opportunity Restore Failure (After Undelete Trigger Error)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
 <div class="card-id">allocation-financedept-tdtm</div>
@@ -312,16 +382,6 @@
 <div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
 </div>
 <div class="card">
-<div class="card-id">asc-aam-tdtm</div>
-<div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
 <div class="card-id">searchable-record-id</div>
 <div class="card-title">Global Search to support searching by Salesforce Record ID</div>
 <div class="card-orgs">
@@ -332,28 +392,38 @@
 <div class="card-next"><strong>Next:</strong> Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</div>
 </div>
 <div class="card">
-<div class="card-id">ocr-scanline-image</div>
-<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
+<div class="card-id">dupe-rules-woocommerce</div>
+<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</div>
 <div class="card-orgs">
-<span class="org-tag">MSMO ⚠</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ⚠</span>
+<span class="org-tag">Prod ⚠</span>
 </div>
-<div class="card-next"><strong>Next:</strong> —</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
 </div>
 <div class="card">
-<div class="card-id">task-delete-restriction</div>
-<div class="card-title">Task Delete Restriction (10 named users only)</div>
+<div class="card-id">tribute-type-on-opportunity</div>
+<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ✅</span>
 <span class="org-tag">MSUSFULL ✅</span>
 <span class="org-tag">Prod ✅</span>
 </div>
-<div class="card-next"><strong>Next:</strong> Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</div>
+<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">5</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">20</span></div>
+<div class="card">
+<div class="card-id">woo-store-tribute-allocation</div>
+<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
 <div class="card">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
@@ -375,6 +445,26 @@
 <div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
 </div>
 <div class="card">
+<div class="card-id">campaign-fdc-tdtm</div>
+<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
+</div>
+<div class="card">
+<div class="card-id">asc-aam-tdtm</div>
+<div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
 <div class="card-id">psc-financedept-tdtm</div>
 <div class="card-title">RDM Account assignment – auto-population on Account Soft Credits (PSC AAM)</div>
 <div class="card-orgs">
@@ -383,6 +473,56 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
+</div>
+<div class="card">
+<div class="card-id">woo-processor-normalizer</div>
+<div class="card-title">Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">woocommerce-opp-fields</div>
+<div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
+</div>
+<div class="card">
+<div class="card-id">searchable-record-id-extension</div>
+<div class="card-title">Global Search — extended to Recurring Donation (Campaign / GAU dropped from scope)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> parked — pick up when business asks for record-Id search on Campaign / RD / GAU</div>
+</div>
+<div class="card">
+<div class="card-id">ocr-scanline-image</div>
+<div class="card-title">OCR-A scan-line image in Dryad receipts</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">task-delete-restriction</div>
+<div class="card-title">Task Delete Restriction (10 named users only)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</div>
 </div>
 <div class="card">
 <div class="card-id">dryad-templates</div>
@@ -404,11 +544,90 @@
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
+<div class="card">
+<div class="card-id">diane-contact-merge-blocked</div>
+<div class="card-title">Contact Merge blocked by Update Next Birthday flow</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">merge-and-delete-access-audit</div>
+<div class="card-title">Merge &amp; Delete Access — audit 33 users vs Brian's worksheet</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">contact-account-address-inherit</div>
+<div class="card-title">Contact Not Inheriting Account Address</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">mailing-address-subpremise-autocomplete</div>
+<div class="card-title">Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gau-allocation-refund-error</div>
+<div class="card-title">GAU Allocation refund error via US New Refund button</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">woocommerce-source-system-mapping</div>
+<div class="card-title">Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">c21-donorfile-closedate-rewrite</div>
+<div class="card-title">C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
 </div>
 </div>
 <div class="matrix-wrapper">
 <h2>Pipeline matrix</h2>
 <table><thead><tr><th>Ticket</th><th>Summary</th><th class='center'>MSMO</th><th class='center'>MSUSFULL</th><th class='center'>Prod</th><th>Stage</th><th>Next</th></tr></thead><tbody>
+<tr>
+<td class="id">woo-store-tribute-allocation</td>
+<td>Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
 <tr>
 <td class="id">msid-multiline</td>
 <td>MSID multi-line MailingStreet</td>
@@ -428,6 +647,24 @@
 <td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
 <tr>
+<td class="id">campaign-fdc-tdtm</td>
+<td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
+</tr>
+<tr>
+<td class="id">asc-aam-tdtm</td>
+<td>RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">psc-financedept-tdtm</td>
 <td>RDM Account assignment – auto-population on Account Soft Credits (PSC AAM)</td>
 <td class="center">✅</td>
@@ -435,6 +672,51 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>release pipeline to Prod</td>
+</tr>
+<tr>
+<td class="id">woo-processor-normalizer</td>
+<td>Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">woocommerce-opp-fields</td>
+<td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
+</tr>
+<tr>
+<td class="id">searchable-record-id-extension</td>
+<td>Global Search — extended to Recurring Donation (Campaign / GAU dropped from scope)</td>
+<td class="center">⚠</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>parked — pick up when business asks for record-Id search on Campaign / RD / GAU</td>
+</tr>
+<tr>
+<td class="id">ocr-scanline-image</td>
+<td>OCR-A scan-line image in Dryad receipts</td>
+<td class="center">⚠</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">task-delete-restriction</td>
+<td>Task Delete Restriction (10 named users only)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</td>
 </tr>
 <tr>
 <td class="id">dryad-templates</td>
@@ -455,13 +737,85 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">campaign-fdc-tdtm</td>
-<td>Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</td>
+<td class="id">diane-contact-merge-blocked</td>
+<td>Contact Merge blocked by Update Next Birthday flow</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">merge-and-delete-access-audit</td>
+<td>Merge &amp; Delete Access — audit 33 users vs Brian's worksheet</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">contact-account-address-inherit</td>
+<td>Contact Not Inheriting Account Address</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">mailing-address-subpremise-autocomplete</td>
+<td>Apt 2 dropped by Salesforce standard Lightning autocomplete (Google Places subpremise limitation)</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">gau-allocation-refund-error</td>
+<td>GAU Allocation refund error via US New Refund button</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">woocommerce-source-system-mapping</td>
+<td>Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">c21-donorfile-closedate-rewrite</td>
+<td>C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="closed">✅ Closed</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">opp-close-date-flow-limit</td>
+<td>CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">opportunity-restore-aftermdelete-npe</td>
+<td>Opportunity Restore Failure (After Undelete Trigger Error)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>—</td>
 </tr>
 <tr>
 <td class="id">allocation-financedept-tdtm</td>
@@ -473,15 +827,6 @@
 <td>release pipeline to Prod</td>
 </tr>
 <tr>
-<td class="id">asc-aam-tdtm</td>
-<td>RDM Account assignment – auto-population on Account Soft Credits (ASC AAM)</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">searchable-record-id</td>
 <td>Global Search to support searching by Salesforce Record ID</td>
 <td class="center">✅</td>
@@ -491,22 +836,22 @@
 <td>Opportunity backfill — full ~9.83M-row rollout (85 cohorts) pending architect green-light or Cloud for Good handoff → activate nightly scheduler in Prod once all 3 objects at 100%</td>
 </tr>
 <tr>
-<td class="id">ocr-scanline-image</td>
-<td>OCR-A scan-line image in Dryad receipts</td>
+<td class="id">dupe-rules-woocommerce</td>
+<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</td>
+<td class="center">✅</td>
 <td class="center">⚠</td>
+<td class="center">⚠</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
+</tr>
+<tr>
+<td class="id">tribute-type-on-opportunity</td>
+<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
+<td class="center">✅</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>—</td>
-</tr>
-<tr>
-<td class="id">task-delete-restriction</td>
-<td>Task Delete Restriction (10 named users only)</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>Client sign-off on 2 scope questions → architect gate → Copado push to PROD (6 metadata + 1 TDTM data row + permset assignments)</td>
 </tr>
 <tr>
 <td class="id">ty-letter-5bucket-delivery</td>
@@ -527,22 +872,13 @@
 <td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
 </tr>
 <tr>
-<td class="id">woocommerce-opp-fields</td>
-<td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
+<td class="id">allocation-fdc-batchable-deploy</td>
+<td>Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</td>
+<td class="center">—</td>
 <td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">❌</td>
+<td class="center">⏳</td>
 <td class="stage"><span class="sandbox">🟠 In Sandbox</span></td>
-<td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
-</tr>
-<tr>
-<td class="id">dupe-rules-woocommerce</td>
-<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="dev">🟡 In Dev</span></td>
-<td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
+<td>—</td>
 </tr>
 <tr>
 <td class="id">eoy-tax-receipt</td>
@@ -552,6 +888,15 @@
 <td class="center">⚪</td>
 <td class="stage"><span class="dev">🟡 In Dev</span></td>
 <td>Client sign-off → architect gate → ~1.5wk build phase</td>
+</tr>
+<tr>
+<td class="id">opp-bulk-import-cpu-limit</td>
+<td>Opportunity bulk-import lock-row + data-skew failures</td>
+<td class="center">·</td>
+<td class="center">·</td>
+<td class="center">⚪</td>
+<td class="stage"><span class="dev">🟡 In Dev</span></td>
+<td>—</td>
 </tr>
 <tr>
 <td class="id">deceased-contact-household-account-behavior</td>
