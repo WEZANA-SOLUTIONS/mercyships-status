@@ -201,19 +201,89 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-05-29 16:38 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-06-11 07:02 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 36 Closed</span>
-<span class="pill in-prod">🟢 4 In Prod (Open)</span>
-<span class="pill sandbox">🟠 5 In Development (Sandbox)</span>
-<span class="pill backlog">🆕 1 New</span>
+<span class="pill closed">✅ 18 Closed</span>
+<span class="pill in-prod">🟢 7 In Prod (Open)</span>
+<span class="pill sandbox">🟠 9 In Development (Sandbox)</span>
+<span class="pill backlog">🆕 8 New</span>
 </div></div>
 <div class="kanban">
 <div class="col backlog">
-<div class="col-header"><span>🆕 New</span><span class="col-count">1</span></div>
+<div class="col-header"><span>🆕 New</span><span class="col-count">8</span></div>
 <div class="card">
-<div class="card-id">npsp-error-log-triage</div>
-<div class="card-title">NPSP Production error-log triage: investigation of recurring Production errors arriving by email, CPU-limit hypothesis verified with hard numbers, written summary delivered to the business for a remediation decision.</div>
+<div class="card-id">ty-letter-spec-alignment</div>
+<div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">key-donor-fields-readonly</div>
+<div class="card-title">Make Key Donor Fields Read-Only for MSUS users</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">missing-campaign-members</div>
+<div class="card-title">Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">xl-connector-contact-import-householding</div>
+<div class="card-title">XL Connector contact import — review + safer NPSP-householding process</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gomeddo-position-commitment-level</div>
+<div class="card-title">[GoMeddo] Add Position Commitment Level field on positions (GM-001)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gomeddo-sub-position-category</div>
+<div class="card-title">[GoMeddo] Add Sub-Position Category field on positions (GM-002)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">gomeddo-minimum-commitment</div>
+<div class="card-title">[GoMeddo] Add Minimum Commitment field on positions (GM-003)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">donor-external-lookup-lwc</div>
+<div class="card-title">LWC utility to look up a Donor by Donor_id on the external Donor__x object and create a Contact from the matched fields</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -223,7 +293,7 @@
 </div>
 </div>
 <div class="col sandbox">
-<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">5</span></div>
+<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">9</span></div>
 <div class="card">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
@@ -235,49 +305,6 @@
 <div class="card-next"><strong>Next:</strong> 242-Contact silent-failure sweep · MSUSFULL APIM key repaste</div>
 </div>
 <div class="card">
-<div class="card-id">protect-4-opp-fields</div>
-<div class="card-title">Protect 4 Opportunity fields on migrated records</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ❌</span>
-</div>
-<div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
-</div>
-<div class="card">
-<div class="card-id">eoy-tax-receipt</div>
-<div class="card-title">End of year Tax Statement Email Templates</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> Waiting for Dryad feedback</div>
-</div>
-<div class="card">
-<div class="card-id">msus-sharepoint-integration</div>
-<div class="card-title">Research into how Mercy Ships can integrate with SharePoint and users can view SharePoint files inside of Salesforce</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">donor-external-lookup-lwc-v2</div>
-<div class="card-title">Donor External Lookup LWC (V2): communication-preference enhancements on top of the live V1. Adds Do Not Mail, Do Not Share, Do Not Call, and a No Mail Reason picklist to the UI, with auto-clear behavior.</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-</div>
-<div class="col in-prod">
-<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">4</span></div>
-<div class="card">
 <div class="card-id">ty-letter-5bucket-delivery</div>
 <div class="card-title">Mailing Deliverability automation – auto-select correct template based on contact</div>
 <div class="card-orgs">
@@ -286,6 +313,16 @@
 <span class="org-tag">Prod ❌</span>
 </div>
 <div class="card-next"><strong>Next:</strong> manifest cleanup: collapse into ty-letter-rollup-async (same class)</div>
+</div>
+<div class="card">
+<div class="card-id">protect-4-opp-fields</div>
+<div class="card-title">Protect 4 Opportunity fields on migrated records</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ❌</span>
+</div>
+<div class="card-next"><strong>Next:</strong> 30-day silent-overwrite drift scan ~2026-05-23</div>
 </div>
 <div class="card">
 <div class="card-id">ty-letter-rollup-async</div>
@@ -308,8 +345,38 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
-<div class="card-id">anon-03-anoniem</div>
-<div class="card-title">Anonymous Account pool routing, Netherlands (MSNL): Anoniem anonymous-donor gifts reorganized from a single catchall into year-based pool Accounts, mirroring the US year-split. Naming preserved across year buckets.</div>
+<div class="card-id">woo-processor-normalizer</div>
+<div class="card-title">Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ❌</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">eoy-tax-receipt</div>
+<div class="card-title">End of year Tax Statement Email Templates</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> Client sign-off → architect gate → ~1.5wk build phase</div>
+</div>
+<div class="card">
+<div class="card-id">opp-bulk-import-cpu-limit</div>
+<div class="card-title">Opportunity bulk-import lock-row + data-skew failures</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ·</span>
+<span class="org-tag">MSUSFULL ·</span>
+<span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">deceased-contact-household-account-behavior</div>
+<div class="card-title">NPSP Household Account behavior when sole Contact is marked Deceased</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -318,21 +385,11 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 </div>
-<div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">36</span></div>
+<div class="col in-prod">
+<div class="col-header"><span>🟢 In Prod (Open)</span><span class="col-count">7</span></div>
 <div class="card">
-<div class="card-id">anon-01-bucket-pool-routing</div>
-<div class="card-title">US Anonymous Account year-split — 36,071 Opportunities reorganized from a single 36K-record catchall into 15 year-based Anonymous Accounts (Pre-2000 + 2000-2013 + per-year 2014-2025 + 2026 Anonymous MSUS Household), each under the 7,500 soft cap and the 10K hard skew threshold</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">woo-store-tribute-allocation</div>
-<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-id">paylite-checkbatchname-field</div>
+<div class="card-title">Check Batch Name formula field on Payology Log (paylite)</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ✅</span>
 <span class="org-tag">MSUSFULL ✅</span>
@@ -361,16 +418,6 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
-<div class="card-id">campaign-fdc-tdtm</div>
-<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
-</div>
-<div class="card">
 <div class="card-id">allocation-financedept-tdtm</div>
 <div class="card-title">RDM Account assignment – auto-population on GAU Allocation</div>
 <div class="card-orgs">
@@ -379,6 +426,59 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> release pipeline to Prod</div>
+</div>
+<div class="card">
+<div class="card-id">dupe-rules-woocommerce</div>
+<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ⚠</span>
+<span class="org-tag">MSUSFULL ⚠</span>
+<span class="org-tag">Prod ⚠</span>
+</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</div>
+</div>
+<div class="card">
+<div class="card-id">tribute-type-on-opportunity</div>
+<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">check-batch-processing-times</div>
+<div class="card-title">Check Batch Trends page — Business (daily Mail-Status-aligned KPIs + backlog trends) + Tech (type-stacked volumes, avg processing times) + Daily Close Detail</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO —</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+</div>
+<div class="col closed">
+<div class="col-header"><span>✅ Closed</span><span class="col-count">18</span></div>
+<div class="card">
+<div class="card-id">woo-store-tribute-allocation</div>
+<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">campaign-fdc-tdtm</div>
+<div class="card-title">Campaign hierarchy – auto-population of Finance Department Code from parent to child campaigns</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ✅</span>
+</div>
+<div class="card-next"><strong>Next:</strong> watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</div>
 </div>
 <div class="card">
 <div class="card-id">asc-aam-tdtm</div>
@@ -411,26 +511,6 @@
 <div class="card-next"><strong>Next:</strong> weekly health check via scripts/verify/verify-searchable-id-scheduler.sh — confirm CronTrigger WAITING + 0 NULL records in 7-30d drift band</div>
 </div>
 <div class="card">
-<div class="card-id">dupe-rules-woocommerce</div>
-<div class="card-title">Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ⚠</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">woo-processor-normalizer</div>
-<div class="card-title">Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
 <div class="card-id">woocommerce-opp-fields</div>
 <div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
 <div class="card-orgs">
@@ -439,16 +519,6 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
-</div>
-<div class="card">
-<div class="card-id">ty-letter-spec-alignment</div>
-<div class="card-title">TY Letter — refactor against client call notes 2026-04-29</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
 <div class="card-id">searchable-record-id-extension</div>
@@ -501,16 +571,6 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
-<div class="card-id">tribute-type-on-opportunity</div>
-<div class="card-title">Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
 <div class="card-id">diane-contact-merge-blocked</div>
 <div class="card-title">Contact Merge blocked by Update Next Birthday flow</div>
 <div class="card-orgs">
@@ -523,16 +583,6 @@
 <div class="card">
 <div class="card-id">merge-and-delete-access-audit</div>
 <div class="card-title">Merge &amp; Delete Access — audit 33 users vs Brian's worksheet</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">key-donor-fields-readonly</div>
-<div class="card-title">Make Key Donor Fields Read-Only for MSUS users</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -561,16 +611,6 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
-<div class="card-id">opp-bulk-import-cpu-limit</div>
-<div class="card-title">Opportunity bulk-import data-skew research: root-cause analysis of lock-row and CPU-limit failures on large donor pools, with a tiered remediation proposal delivered to the business</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
 <div class="card-id">gau-allocation-refund-error</div>
 <div class="card-title">GAU Allocation refund error via US New Refund button</div>
 <div class="card-orgs">
@@ -591,88 +631,8 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
-<div class="card-id">missing-campaign-members</div>
-<div class="card-title">Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">deceased-contact-household-account-behavior</div>
-<div class="card-title">NPSP Household Account behavior when sole Contact is marked Deceased</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
 <div class="card-id">c21-donorfile-closedate-rewrite</div>
 <div class="card-title">C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">xl-connector-contact-import-householding</div>
-<div class="card-title">XL Connector contact import — review + safer NPSP-householding process</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">gomeddo-position-commitment-level</div>
-<div class="card-title">[GoMeddo] Add Position Commitment Level field on positions (GM-001)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">gomeddo-sub-position-category</div>
-<div class="card-title">[GoMeddo] Add Sub-Position Category field on positions (GM-002)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">gomeddo-minimum-commitment</div>
-<div class="card-title">[GoMeddo] Add Minimum Commitment field on positions (GM-003)</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ·</span>
-<span class="org-tag">MSUSFULL ·</span>
-<span class="org-tag">Prod ⚪</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">donor-external-lookup-lwc</div>
-<div class="card-title">V1: Donor lookup LWC — search a Donor by ID against the Donor__x external object and one-click create a Contact + Account in MSUS from those external fields</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
-<div class="card-id">anon-02-sven</div>
-<div class="card-title">Anonymous Account pool routing, Sweden (MSSE): Sven anonymous-donor gifts reorganized from a single catchall into year-based pool Accounts, mirroring the US year-split. Naming preserved across year buckets.</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
@@ -686,35 +646,8 @@
 <h2>Pipeline matrix</h2>
 <table><thead><tr><th>Ticket</th><th>Summary</th><th class='center'>MSMO</th><th class='center'>MSUSFULL</th><th class='center'>Prod</th><th>Stage</th><th>Next</th></tr></thead><tbody>
 <tr>
-<td class="id">anon-01-bucket-pool-routing</td>
-<td>US Anonymous Account year-split — 36,071 Opportunities reorganized from a single 36K-record catchall into 15 year-based Anonymous Accounts (Pre-2000 + 2000-2013 + per-year 2014-2025 + 2026 Anonymous MSUS Household), each under the 7,500 soft cap and the 10K hard skew threshold</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">woo-store-tribute-allocation</td>
 <td>Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">opp-close-date-flow-limit</td>
-<td>CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">opportunity-restore-aftermdelete-npe</td>
-<td>Opportunity Restore Failure (After Undelete Trigger Error)</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
@@ -729,15 +662,6 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>watch for orphan/inactive Campaign feedback (Davis 109-row cohort) → decide on default-FDC rule or status quo</td>
-</tr>
-<tr>
-<td class="id">allocation-financedept-tdtm</td>
-<td>RDM Account assignment – auto-population on GAU Allocation</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>release pipeline to Prod</td>
 </tr>
 <tr>
 <td class="id">asc-aam-tdtm</td>
@@ -767,24 +691,6 @@
 <td>weekly health check via scripts/verify/verify-searchable-id-scheduler.sh — confirm CronTrigger WAITING + 0 NULL records in 7-30d drift band</td>
 </tr>
 <tr>
-<td class="id">dupe-rules-woocommerce</td>
-<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</td>
-<td class="center">✅</td>
-<td class="center">⚠</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">woo-processor-normalizer</td>
-<td>Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">woocommerce-opp-fields</td>
 <td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
 <td class="center">✅</td>
@@ -792,15 +698,6 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
-</tr>
-<tr>
-<td class="id">ty-letter-spec-alignment</td>
-<td>TY Letter — refactor against client call notes 2026-04-29</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
 </tr>
 <tr>
 <td class="id">searchable-record-id-extension</td>
@@ -848,15 +745,6 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">tribute-type-on-opportunity</td>
-<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">diane-contact-merge-blocked</td>
 <td>Contact Merge blocked by Update Next Birthday flow</td>
 <td class="center">✅</td>
@@ -868,15 +756,6 @@
 <tr>
 <td class="id">merge-and-delete-access-audit</td>
 <td>Merge &amp; Delete Access — audit 33 users vs Brian's worksheet</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">key-donor-fields-readonly</td>
-<td>Make Key Donor Fields Read-Only for MSUS users</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
@@ -902,15 +781,6 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">opp-bulk-import-cpu-limit</td>
-<td>Opportunity bulk-import data-skew research: root-cause analysis of lock-row and CPU-limit failures on large donor pools, with a tiered remediation proposal delivered to the business</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">gau-allocation-refund-error</td>
 <td>GAU Allocation refund error via US New Refund button</td>
 <td class="center">✅</td>
@@ -929,24 +799,6 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">missing-campaign-members</td>
-<td>Missing Campaign Members on Opportunities — Primary Contacts on Opps not added as Campaign Members for some historical and recent records</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">deceased-contact-household-account-behavior</td>
-<td>NPSP Household Account behavior when sole Contact is marked Deceased</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">c21-donorfile-closedate-rewrite</td>
 <td>C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</td>
 <td class="center">·</td>
@@ -956,92 +808,65 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">xl-connector-contact-import-householding</td>
-<td>XL Connector contact import — review + safer NPSP-householding process</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">gomeddo-position-commitment-level</td>
-<td>[GoMeddo] Add Position Commitment Level field on positions (GM-001)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">gomeddo-sub-position-category</td>
-<td>[GoMeddo] Add Sub-Position Category field on positions (GM-002)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">gomeddo-minimum-commitment</td>
-<td>[GoMeddo] Add Minimum Commitment field on positions (GM-003)</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">donor-external-lookup-lwc</td>
-<td>V1: Donor lookup LWC — search a Donor by ID against the Donor__x external object and one-click create a Contact + Account in MSUS from those external fields</td>
+<td class="id">paylite-checkbatchname-field</td>
+<td>Check Batch Name formula field on Payology Log (paylite)</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">anon-02-sven</td>
-<td>Anonymous Account pool routing, Sweden (MSSE): Sven anonymous-donor gifts reorganized from a single catchall into year-based pool Accounts, mirroring the US year-split. Naming preserved across year buckets.</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">ty-letter-5bucket-delivery</td>
-<td>Mailing Deliverability automation – auto-select correct template based on contact</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">❌</td>
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>manifest cleanup: collapse into ty-letter-rollup-async (same class)</td>
+<td>—</td>
 </tr>
 <tr>
-<td class="id">ty-letter-rollup-async</td>
-<td>Thank You letter codes for Recurring Donation Opportunities</td>
+<td class="id">opp-close-date-flow-limit</td>
+<td>CloseDate update fails on heavy donor Accounts (NCF, DAFs, anonymous-aggregator households)</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
-<td class="center">⏳</td>
+<td class="center">✅</td>
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
+<td>—</td>
 </tr>
 <tr>
-<td class="id">allocation-fdc-batchable-deploy</td>
-<td>Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</td>
+<td class="id">opportunity-restore-aftermdelete-npe</td>
+<td>Opportunity Restore Failure (After Undelete Trigger Error)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">allocation-financedept-tdtm</td>
+<td>RDM Account assignment – auto-population on GAU Allocation</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>release pipeline to Prod</td>
+</tr>
+<tr>
+<td class="id">dupe-rules-woocommerce</td>
+<td>Optimize MSUS Account &amp; MSUS Contact duplicate rules (WooCommerce integration) + drop Email-as-hard-dependency in matching</td>
+<td class="center">⚠</td>
+<td class="center">⚠</td>
+<td class="center">⚠</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>spin up dedicated session → retrieve `MSUS Account` + `MSUS Contact` dup rules from MSPROD, locate the architect's workaround, sample WooCommerce dup-rule failures → architect call</td>
+</tr>
+<tr>
+<td class="id">tribute-type-on-opportunity</td>
+<td>Tribute Type on Opportunity — auto-populate from Tribute Allocations so Dryad receipts render tribute text</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">check-batch-processing-times</td>
+<td>Check Batch Trends page — Business (daily Mail-Status-aligned KPIs + backlog trends) + Tech (type-stacked volumes, avg processing times) + Daily Close Detail</td>
 <td class="center">—</td>
 <td class="center">✅</td>
-<td class="center">⏳</td>
-<td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
-<td>—</td>
-</tr>
-<tr>
-<td class="id">anon-03-anoniem</td>
-<td>Anonymous Account pool routing, Netherlands (MSNL): Anoniem anonymous-donor gifts reorganized from a single catchall into year-based pool Accounts, mirroring the US year-split. Naming preserved across year buckets.</td>
-<td class="center">·</td>
-<td class="center">·</td>
-<td class="center">⚪</td>
+<td class="center">✅</td>
 <td class="stage"><span class="in-prod">🟢 In Prod (Open)</span></td>
 <td>—</td>
 </tr>
@@ -1055,6 +880,15 @@
 <td>242-Contact silent-failure sweep · MSUSFULL APIM key repaste</td>
 </tr>
 <tr>
+<td class="id">ty-letter-5bucket-delivery</td>
+<td>Mailing Deliverability automation – auto-select correct template based on contact</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>manifest cleanup: collapse into ty-letter-rollup-async (same class)</td>
+</tr>
+<tr>
 <td class="id">protect-4-opp-fields</td>
 <td>Protect 4 Opportunity fields on migrated records</td>
 <td class="center">✅</td>
@@ -1064,17 +898,44 @@
 <td>30-day silent-overwrite drift scan ~2026-05-23</td>
 </tr>
 <tr>
+<td class="id">ty-letter-rollup-async</td>
+<td>Thank You letter codes for Recurring Donation Opportunities</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">⏳</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>touch-update 591 SFJobs miscoded Opps via Searchable_Record_Id__c self-write (architect-gated)</td>
+</tr>
+<tr>
+<td class="id">allocation-fdc-batchable-deploy</td>
+<td>Allocation FDC backfill at scale (Apex Batchable + bypass wiring)</td>
+<td class="center">—</td>
+<td class="center">✅</td>
+<td class="center">⏳</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">woo-processor-normalizer</td>
+<td>Normalize raw WooCommerce gateway slugs on Opportunity.Processor__c (CMDT-backed)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">eoy-tax-receipt</td>
 <td>End of year Tax Statement Email Templates</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
 <td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
-<td>Waiting for Dryad feedback</td>
+<td>Client sign-off → architect gate → ~1.5wk build phase</td>
 </tr>
 <tr>
-<td class="id">msus-sharepoint-integration</td>
-<td>Research into how Mercy Ships can integrate with SharePoint and users can view SharePoint files inside of Salesforce</td>
+<td class="id">opp-bulk-import-cpu-limit</td>
+<td>Opportunity bulk-import lock-row + data-skew failures</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
@@ -1082,8 +943,8 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">donor-external-lookup-lwc-v2</td>
-<td>Donor External Lookup LWC (V2): communication-preference enhancements on top of the live V1. Adds Do Not Mail, Do Not Share, Do Not Call, and a No Mail Reason picklist to the UI, with auto-clear behavior.</td>
+<td class="id">deceased-contact-household-account-behavior</td>
+<td>NPSP Household Account behavior when sole Contact is marked Deceased</td>
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
