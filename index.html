@@ -201,11 +201,11 @@
 <div class="container">
 <div class="header">
 <h1>Mercy Ships — Status Dashboard</h1>
-<div class="meta">Generated <strong>2026-06-12 02:53 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
+<div class="meta">Generated <strong>2026-06-22 12:12 CT</strong> · Source: <code>scripts/verify/prod-verifications.yml</code> + 3-org live check (MSPROD, MSMO, MSUSFULL) · Refresh: <code>python3 scripts/verify/check-prod-now.py --status-md</code></div>
 <div class="counts">
-<span class="pill closed">✅ 18 Closed</span>
+<span class="pill closed">✅ 16 Closed</span>
 <span class="pill in-prod">🟢 7 In Prod (Open)</span>
-<span class="pill sandbox">🟠 9 In Development (Sandbox)</span>
+<span class="pill sandbox">🟠 12 In Development (Sandbox)</span>
 <span class="pill backlog">🆕 9 New</span>
 </div></div>
 <div class="kanban">
@@ -303,7 +303,17 @@
 </div>
 </div>
 <div class="col sandbox">
-<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">9</span></div>
+<div class="col-header"><span>🟠 In Development (Sandbox)</span><span class="col-count">12</span></div>
+<div class="card">
+<div class="card-id">woo-store-tribute-allocation</div>
+<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ❌</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
 <div class="card">
 <div class="card-id">msid-multiline</div>
 <div class="card-title">MSID multi-line MailingStreet</div>
@@ -365,6 +375,16 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
+<div class="card-id">woocommerce-opp-fields</div>
+<div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ❌</span>
+</div>
+<div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
+</div>
+<div class="card">
 <div class="card-id">eoy-tax-receipt</div>
 <div class="card-title">End of year Tax Statement Email Templates</div>
 <div class="card-orgs">
@@ -381,6 +401,16 @@
 <span class="org-tag">MSMO ·</span>
 <span class="org-tag">MSUSFULL ·</span>
 <span class="org-tag">Prod ⚪</span>
+</div>
+<div class="card-next"><strong>Next:</strong> —</div>
+</div>
+<div class="card">
+<div class="card-id">woocommerce-source-system-mapping</div>
+<div class="card-title">Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</div>
+<div class="card-orgs">
+<span class="org-tag">MSMO ✅</span>
+<span class="org-tag">MSUSFULL ✅</span>
+<span class="org-tag">Prod ❌</span>
 </div>
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
@@ -469,10 +499,10 @@
 </div>
 </div>
 <div class="col closed">
-<div class="col-header"><span>✅ Closed</span><span class="col-count">18</span></div>
+<div class="col-header"><span>✅ Closed</span><span class="col-count">16</span></div>
 <div class="card">
-<div class="card-id">woo-store-tribute-allocation</div>
-<div class="card-title">Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</div>
+<div class="card-id">opp-rinfo-fault-path</div>
+<div class="card-title">Check posting hard-blocked when a gift's allocations transiently over-allocate — fault-path hardening</div>
 <div class="card-orgs">
 <span class="org-tag">MSMO ✅</span>
 <span class="org-tag">MSUSFULL ✅</span>
@@ -519,16 +549,6 @@
 <span class="org-tag">Prod ✅</span>
 </div>
 <div class="card-next"><strong>Next:</strong> weekly health check via scripts/verify/verify-searchable-id-scheduler.sh — confirm CronTrigger WAITING + 0 NULL records in 7-30d drift band</div>
-</div>
-<div class="card">
-<div class="card-id">woocommerce-opp-fields</div>
-<div class="card-title">Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</div>
 </div>
 <div class="card">
 <div class="card-id">searchable-record-id-extension</div>
@@ -631,16 +651,6 @@
 <div class="card-next"><strong>Next:</strong> —</div>
 </div>
 <div class="card">
-<div class="card-id">woocommerce-source-system-mapping</div>
-<div class="card-title">Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</div>
-<div class="card-orgs">
-<span class="org-tag">MSMO ✅</span>
-<span class="org-tag">MSUSFULL ✅</span>
-<span class="org-tag">Prod ✅</span>
-</div>
-<div class="card-next"><strong>Next:</strong> —</div>
-</div>
-<div class="card">
 <div class="card-id">c21-donorfile-closedate-rewrite</div>
 <div class="card-title">C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</div>
 <div class="card-orgs">
@@ -656,8 +666,8 @@
 <h2>Pipeline matrix</h2>
 <table><thead><tr><th>Ticket</th><th>Summary</th><th class='center'>MSMO</th><th class='center'>MSUSFULL</th><th class='center'>Prod</th><th>Stage</th><th>Next</th></tr></thead><tbody>
 <tr>
-<td class="id">woo-store-tribute-allocation</td>
-<td>Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</td>
+<td class="id">opp-rinfo-fault-path</td>
+<td>Check posting hard-blocked when a gift's allocations transiently over-allocate — fault-path hardening</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
 <td class="center">✅</td>
@@ -699,15 +709,6 @@
 <td class="center">✅</td>
 <td class="stage"><span class="closed">✅ Closed</span></td>
 <td>weekly health check via scripts/verify/verify-searchable-id-scheduler.sh — confirm CronTrigger WAITING + 0 NULL records in 7-30d drift band</td>
-</tr>
-<tr>
-<td class="id">woocommerce-opp-fields</td>
-<td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
 </tr>
 <tr>
 <td class="id">searchable-record-id-extension</td>
@@ -800,15 +801,6 @@
 <td>—</td>
 </tr>
 <tr>
-<td class="id">woocommerce-source-system-mapping</td>
-<td>Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="center">✅</td>
-<td class="stage"><span class="closed">✅ Closed</span></td>
-<td>—</td>
-</tr>
-<tr>
 <td class="id">c21-donorfile-closedate-rewrite</td>
 <td>C21/Payology donor-file flow stamps Opportunity CloseDate to today's date instead of the actual gift date</td>
 <td class="center">·</td>
@@ -881,6 +873,15 @@
 <td>—</td>
 </tr>
 <tr>
+<td class="id">woo-store-tribute-allocation</td>
+<td>Woo Store donations with In Honor / In Memory text now create structured Tribute + Tribute_Allocation records (closes the gap where 4 of 5 last-90-day Woo+tribute donations had only the text marker)</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>—</td>
+</tr>
+<tr>
 <td class="id">msid-multiline</td>
 <td>MSID multi-line MailingStreet</td>
 <td class="center">✅</td>
@@ -935,6 +936,15 @@
 <td>—</td>
 </tr>
 <tr>
+<td class="id">woocommerce-opp-fields</td>
+<td>Map new fields Processor__c and ReferenceCheck_Number__c to Opportunity from WooCommerce</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>spin up dedicated session → confirm `Processor__c` + `ReferenceCheck_Number__c` exist on Opportunity in MSPROD, locate WooCommerce Apex mapping point → architect call</td>
+</tr>
+<tr>
 <td class="id">eoy-tax-receipt</td>
 <td>End of year Tax Statement Email Templates</td>
 <td class="center">·</td>
@@ -949,6 +959,15 @@
 <td class="center">·</td>
 <td class="center">·</td>
 <td class="center">⚪</td>
+<td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td class="id">woocommerce-source-system-mapping</td>
+<td>Map Source_System__c on WooCommerce-converted Opportunities + retire Volusion picklist value</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
 <td class="stage"><span class="sandbox">🟠 In Development (Sandbox)</span></td>
 <td>—</td>
 </tr>
